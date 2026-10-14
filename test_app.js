@@ -21,7 +21,7 @@ function getEl(id) {
 const context = {
   document: {
     addEventListener: () => {},
-    body: { classList: { add: () => {}, remove: () => {}, toggle: () => {}, contains: () => false } },
+    body: { classList: { add: () => {}, remove: () => {}, toggle: () => {} } },
     getElementById: getEl,
     querySelectorAll: () => [],
     createElement: (tag) => ({
@@ -45,17 +45,20 @@ vm.runInContext(scriptMatch[1], context);
 
 vm.runInContext(`
   app.init();
-  console.log('Total bank questions:', app.questions.length);
-  app.startExam('global');
-  console.log('Global exam questions:', app.currentExam.questions.length);
-  app.startExam(1);
-  console.log('Tema 1 exam questions:', app.currentExam.questions.length);
-  app.startExam(2);
-  console.log('Tema 2 exam questions:', app.currentExam.questions.length);
-  app.startExam(3);
-  console.log('Tema 3 exam questions:', app.currentExam.questions.length);
-  app.startExam(4);
-  console.log('Tema 4 exam questions:', app.currentExam.questions.length);
-  app.startCalculationsOnly();
-  console.log('Calculations mode questions:', app.currentExam.questions.length);
+  console.log('Questions in database:', app.questions.length);
+  console.log('Flashcards in database:', app.flashcards.length);
+  
+  app.startExam('parcial1');
+  console.log('Primer Parcial questions count:', app.currentExam.questions.length);
+  
+  app.selectOption(0);
+  app.nextQuestion();
+  console.log('Current question index after next:', app.currentIndex);
+  
+  app.finishAttemptSummary();
+  app.submitAttempt();
+  console.log('Attempt submitted successfully!');
+  
+  app.showFlashcards();
+  console.log('Flashcard rendered title:', document.getElementById('cardTitle').textContent);
 `, context);
