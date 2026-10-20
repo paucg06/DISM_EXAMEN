@@ -4242,5 +4242,229 @@
     ],
     "correct": 0,
     "explanation": "Los tags RFID pasivos carecen de batería: utilizan la inducción electromagnética del campo emitido por la antena lectora para alimentarse y devolver su identificador. Los dispositivos Bluetooth son activos y requieren batería."
+  },
+  {
+    "id": "t2_intro_01",
+    "tema": 2,
+    "subtema": "Introducción a Sistemas Multimedia",
+    "q": "¿Qué es 'multimedia' según la definición técnica del temario?",
+    "options": [
+      "Un formato exclusivo de compresión de audio y vídeo",
+      "El campo que estudia la integración controlada por computador de texto, gráficos, imágenes, animaciones y audio procesados digitalmente",
+      "Una red de telecomunicaciones basada únicamente en fibra óptica",
+      "Un sistema operativo móvil basado en Linux"
+    ],
+    "correct": 1,
+    "explanation": "Multimedia es el campo que estudia la integración controlada por computador de medios (texto, gráficos, imágenes, audio, etc.) donde cada información es representada, transmitida y procesada digitalmente."
+  },
+  {
+    "id": "t2_intro_02",
+    "tema": 2,
+    "subtema": "Introducción a Sistemas Multimedia",
+    "q": "En la clasificación de sistemas multimedia, ¿qué diferencia a la multimedia lineal de la hipermedia interactiva?",
+    "options": [
+      "En la lineal el usuario no tiene control y visualiza los contenidos en orden predeterminado (ej. cine); en la hipermedia interactiva controla secuencia, velocidad y momento",
+      "La multimedia lineal solo contiene texto y la hipermedia solo audio",
+      "La multimedia lineal requiere siempre conexión a Internet",
+      "No hay diferencia, son términos sinónimos"
+    ],
+    "correct": 0,
+    "explanation": "Multimedia lineal: el usuario no altera el orden de visualización (como una película de cine tradicional). Hipermedia interactiva: el usuario tiene control total sobre la secuencia, velocidad y navegación."
+  },
+  {
+    "id": "t2_intro_03",
+    "tema": 2,
+    "subtema": "Introducción a Sistemas Multimedia",
+    "q": "¿Cuáles son las etapas secuenciales habituales en el desarrollo de un proyecto multimedia según el tema?",
+    "options": [
+      "Planificación y diseño de arquitectura -> Adquisición y digitalización -> Almacenamiento y compresión -> Transmisión y visualización",
+      "Impresión -> Escaneo -> Distribución postal -> Archivo físico",
+      "Solo programación en código binario",
+      "Ninguna de las anteriores"
+    ],
+    "correct": 0,
+    "explanation": "El flujo de un proyecto multimedia comprende la planificación/diseño, adquisición/digitalización de señales analógicas, compresión/almacenamiento y transmisión/presentación al usuario."
+  },
+  {
+    "id": "t2_oca_01",
+    "tema": 2,
+    "subtema": "Arquitectura Streaming y CDN",
+    "q": "En la arquitectura de streaming de Netflix, ¿qué es un OCA (Open Connect Appliance)?",
+    "options": [
+      "Un algoritmo matemático de compresión de audio",
+      "Un servidor especializado de entrega de vídeo que Netflix aloja gratuitamente dentro o cerca de los ISP e IXP para servir directamente el contenido audiovisual al cliente final por HTTP(S)",
+      "El microservicio de facturación y cobro mensual de suscripciones alojado en AWS",
+      "Una antena 5G directiva instalada en los hogares de los usuarios"
+    ],
+    "correct": 1,
+    "explanation": "Los OCA (Open Connect Appliances) son la red de entrega (CDN) propia de Netflix: servidores de caché masiva instalados directamente dentro de las redes de los proveedores de Internet (ISP) para entregar los bytes de vídeo localmente con mínima latencia, mientras AWS gestiona la lógica empresarial y catálogo."
+  },
+  {
+    "id": "t2_jitter_01",
+    "tema": 2,
+    "subtema": "Arquitectura Streaming",
+    "q": "¿Qué función crucial cumple el BUFFER del cliente en la arquitectura de streaming multimedia y qué fenómeno de red absorbe?",
+    "options": [
+      "Absorbe el JITTER (la variación del retardo en el tiempo de llegada de los paquetes desde la red), convirtiendo una llegada irregular en una reproducción regular y continua sin cortes",
+      "Aumenta la resolución física del monitor del usuario",
+      "Evita tener que pagar la suscripción del servicio de streaming",
+      "Comprime los datos en formato MP3 para ahorrar espacio en disco"
+    ],
+    "correct": 0,
+    "explanation": "El buffer del cliente absorbe el Jitter (variaciones de tiempo de llegada de paquetes en la red). Almacena temporalmente unos segundos de contenido antes de reproducirlo, logrando un flujo de salida regular y fluido."
+  },
+  {
+    "id": "t2_raid5_write_01",
+    "tema": 2,
+    "subtema": "Sistemas RAID",
+    "q": "En un sistema RAID 5, ¿en qué consiste la penalización de escritura pequeña (Read-Modify-Write) cuando se modifica un único bloque de datos?",
+    "options": [
+      "Requiere 4 accesos a disco en total (2 lecturas: leer dato viejo y paridad vieja + 2 escrituras: escribir dato nuevo y paridad nueva)",
+      "Requiere formatear todos los discos de la matriz",
+      "Solo requiere 1 acceso a disco porque la paridad no se actualiza nunca",
+      "Obliga a apagar el servidor durante la actualización"
+    ],
+    "correct": 0,
+    "explanation": "En escrituras parciales de un único bloque en RAID 5, se produce la técnica Read-Modify-Write: para calcular P_nueva = D_nueva ⊕ D_vieja ⊕ P_vieja, la controladora debe hacer 2 lecturas (D_vieja y P_vieja) y luego 2 escrituras (D_nueva y P_nueva), totalizando 4 accesos a disco por bloque."
+  },
+  {
+    "id": "t2_raid5_write_02",
+    "tema": 2,
+    "subtema": "Sistemas RAID",
+    "q": "¿Por qué las aplicaciones de vídeo y audio streaming se adaptan muy bien a RAID 5 a pesar de la penalización de escritura pequeña?",
+    "options": [
+      "Porque el audio y el vídeo se graban en bloques grandes secuenciales que llenan franjas (stripes) completas, calculando la paridad en memoria y evitando la penalización de Read-Modify-Write",
+      "Porque el vídeo no utiliza almacenamiento en disco",
+      "Porque RAID 5 no necesita bloques de paridad para vídeo",
+      "Porque los vídeos siempre se reproducen en formato mono"
+    ],
+    "correct": 0,
+    "explanation": "Al grabar secuencias multimedia de gran tamaño, se escriben franjas completas a la vez: la paridad se calcula directamente en memoria RAM y se escribe en paralelo en todos los discos, evitando lecturas previas."
+  },
+  {
+    "id": "t2_utf_01",
+    "tema": 2,
+    "subtema": "Formatos y Codificación",
+    "q": "En la codificación de texto Unicode, ¿cuál es una diferencia clave de eficiencia entre UTF-8 y UTF-16 respecto a caracteres occidentales e ideogramas asiáticos?",
+    "options": [
+      "UTF-8 ahorra espacio en caracteres latinos/ASCII (1 byte), pero los caracteres ideográficos chinos/japoneses ocupan 3 bytes en UTF-8 frente a sólo 2 bytes en UTF-16",
+      "UTF-8 usa siempre 4 bytes fijos para cualquier carácter",
+      "UTF-16 no es compatible con el estándar Unicode",
+      "UTF-32 es el que menos espacio ocupa en memoria para textos largos"
+    ],
+    "correct": 0,
+    "explanation": "UTF-8 es de longitud variable (1 a 4 bytes): caracteres ASCII ocupan 1 byte y caracteres latinos 2 bytes. Sin embargo, para alfabetos ideográficos asiáticos (BMP) UTF-8 utiliza 3 bytes, mientras que UTF-16 sólo utiliza 2 bytes, siendo UTF-16 más compacto para idiomas orientales."
+  },
+  {
+    "id": "t2_mma_locality_01",
+    "tema": 2,
+    "subtema": "Arquitectura Multimedia (MMA)",
+    "q": "En cuanto al comportamiento de memoria de las aplicaciones multimedia (MMA), ¿qué tipo de localidad presentan fundamentalmente?",
+    "options": [
+      "Alta localidad espacial (acceso a posiciones continuas de memoria como píxeles de imagen o muestras de audio) pero baja localidad temporal (raramente se reutilizan los mismos datos una vez procesados)",
+      "Alta localidad temporal y nula localidad espacial",
+      "No presentan ningún tipo de localidad de memoria",
+      "Baja localidad espacial y altísima localidad temporal"
+    ],
+    "correct": 0,
+    "explanation": "Las aplicaciones multimedia procesan flujos masivos de datos secuenciales: leen píxeles contiguos adyacentes en momentos cercanos (alta localidad espacial), pero rara vez vuelven a acceder a los mismos píxeles pasados (baja localidad temporal)."
+  },
+  {
+    "id": "t2_asic_vs_fpga_01",
+    "tema": 2,
+    "subtema": "Arquitectura Multimedia (MMA)",
+    "q": "¿Cuál es la diferencia fundamental entre una arquitectura dedicada (ASIC) y una arquitectura reconfigurable (FPGA) para procesamiento multimedia?",
+    "options": [
+      "El ASIC tiene un circuito físico fijo fabricado en silicio (máximo rendimiento y eficiencia energética, sin flexibilidad); la FPGA puede reconfigurar su lógica por software/HDL después de ser fabricada si el algoritmo evoluciona",
+      "La FPGA es de circuito fijo no modificable y el ASIC se reprograma por USB",
+      "El ASIC consume 100 veces más energía que la FPGA",
+      "No hay diferencia técnica entre ASIC y FPGA"
+    ],
+    "correct": 0,
+    "explanation": "ASIC (Application-Specific Integrated Circuit) es un circuito impreso definitivo: insuperable en velocidad y bajo consumo, pero nula flexibilidad. FPGA (Field-Programmable Gate Array) posee bloques lógicos programables que permiten cambiar el circuito tras fabricarlo ante actualizaciones algorítmicas."
+  },
+  {
+    "id": "t3_ant_plus_01",
+    "tema": 3,
+    "subtema": "Conectividad",
+    "q": "Al comparar los protocolos inalámbricos ANT y ANT+, ¿cuál es la diferencia exacta según el temario?",
+    "options": [
+      "ANT es el protocolo base de red (2400-2524 MHz); ANT+ añade los perfiles estandarizados de datos (frecuencia 2457 MHz) para que dispositivos de distintos fabricantes puedan entender la información intercambiada",
+      "ANT es para satélites y ANT+ para teléfonos fijos",
+      "ANT+ consume 10 veces más batería que Wi-Fi",
+      "ANT es de código abierto y ANT+ es un cable físico"
+    ],
+    "correct": 0,
+    "explanation": "ANT es el protocolo de transporte inalámbrico de ultra baja potencia. Dos dispositivos pueden comunicarse en ANT pero 'no entenderse'; ANT+ define los perfiles semánticos de datos (ej. perfil de pulsómetro, cadencia) que garantizan interoperabilidad."
+  },
+  {
+    "id": "t3_wifi_range_01",
+    "tema": 3,
+    "subtema": "Conectividad",
+    "q": "En cuanto al alcance físico y cobertura de las tecnologías Wi-Fi, ¿por qué los estándares iniciales como Wi-Fi 1 (802.11b en 2.4 GHz) tienen mayor alcance y penetración en obstáculos que frecuencias más altas como 5 GHz o 6 GHz (Wi-Fi 7)?",
+    "options": [
+      "Porque a menor frecuencia de radio (2.4 GHz) la onda electromagnética sufre menor atenuación por distancia y atraviesa mejor paredes y sólidos que las ondas de mayor frecuencia (5 GHz y 6 GHz)",
+      "Porque Wi-Fi 7 utiliza antenas de menor tamaño que no transmiten energía",
+      "Porque Wi-Fi 1 tenía cables directos conectados al router",
+      "Porque la velocidad de la luz cambia según el número de versión de Wi-Fi"
+    ],
+    "correct": 0,
+    "explanation": "La física de propagación de ondas de radio determina que las frecuencias más bajas (2.4 GHz de 802.11b) tienen mayor longitud de onda y sufren menos atenuación ante obstáculos, logrando mayor alcance físico que las bandas de 5 GHz y 6 GHz (más veloces pero de menor alcance)."
+  },
+  {
+    "id": "t3_rfid_freq_nfc_01",
+    "tema": 3,
+    "subtema": "Conectividad",
+    "q": "¿Cuáles son las frecuencias y modos de operación de RFID frente a NFC según el temario de DISM?",
+    "options": [
+      "RFID opera en 3 bandas de frecuencia principales (LF, HF y UHF) con 2 modos (pasivo y activo), alcanzando metros; NFC opera en una única frecuencia fija (13,56 MHz) y alcance estrictamente inferior a 10 cm",
+      "NFC opera en 10 frecuencias distintas y RFID sólo en infrarrojos",
+      "RFID solo funciona a menos de 1 milímetro",
+      "Ambos operan en la banda de 5 GHz con alcances idénticos de 1 kilómetro"
+    ],
+    "correct": 0,
+    "explanation": "En el temario se especifica: NFC es una extensión de RFID que opera en una sola frecuencia (13,56 MHz) a muy corta distancia (< 10 cm, típica <= 4 cm). En cambio, RFID opera en 3 rangos de frecuencia (baja, alta y ultra alta) y 2 modos (activo y pasivo), logrando alcances de varios metros en entornos empresariales."
+  },
+  {
+    "id": "t3_erlang_calc_01",
+    "tema": 3,
+    "subtema": "Cálculos Celulares",
+    "q": "EJERCICIO DE TRÁFICO TELEFÓNICO: Un grupo de circuitos recibe 1.200 llamadas en 1 hora cargada, con una duración media por llamada de 3 minutos (180 segundos). ¿Cuál es el tráfico ofrecido (TO) en Erlangs?",
+    "options": [
+      "60 Erlangs",
+      "3.600 Erlangs",
+      "20 Erlangs",
+      "120 Erlangs"
+    ],
+    "correct": 0,
+    "explanation": "Tráfico Ofrecido TO = λ · h = 1.200 llam/h · (3 / 60 h) = 1.200 · 0,05 = 60 Erlangs. (O bien: TO = C · h / T = 1.200 · 180s / 3.600s = 60 Erlangs)."
+  },
+  {
+    "id": "t3_erlang_calc_02",
+    "tema": 3,
+    "subtema": "Cálculos Celulares",
+    "q": "EJERCICIO DE TRÁFICO TELEFÓNICO: Si el tráfico ofrecido a una celda celular es de 60 Erlangs y el Grado de Servicio (GoS o probabilidad de bloqueo) es del 5% (0,05), ¿cuál es el tráfico cursado (TC) y el tráfico perdido (TP)?",
+    "options": [
+      "Tráfico cursado TC = 57 Erlangs y Tráfico perdido TP = 3 Erlangs",
+      "Tráfico cursado TC = 60 Erlangs y Tráfico perdido TP = 5 Erlangs",
+      "Tráfico cursado TC = 30 Erlangs y Tráfico perdido TP = 30 Erlangs",
+      "Tráfico cursado TC = 3 Erlangs y Tráfico perdido TP = 57 Erlangs"
+    ],
+    "correct": 0,
+    "explanation": "Tráfico Cursado TC = TO · (1 - GoS) = 60 · (1 - 0,05) = 60 · 0,95 = 57 Erlangs. Tráfico Perdido TP = TO - TC = 60 - 57 = 3 Erlangs (o TP = TO · GoS = 60 · 0,05 = 3 Erlangs)."
+  },
+  {
+    "id": "t3_erlang_calc_03",
+    "tema": 3,
+    "subtema": "Cálculos Celulares",
+    "q": "EJERCICIO DE TRÁFICO TELEFÓNICO: En un grupo de circuitos el tráfico ofrecido es de 25 Erlangs y el tráfico cursado es de 15 Erlangs. ¿Cuál es el Grado de Servicio (GoS)?",
+    "options": [
+      "GoS = 0,40 (40% de llamadas bloqueadas)",
+      "GoS = 0,10 (10%)",
+      "GoS = 0,60 (60%)",
+      "GoS = 0,25 (25%)"
+    ],
+    "correct": 0,
+    "explanation": "El tráfico perdido es TP = TO - TC = 25 - 15 = 10 Erlangs. El Grado de Servicio es la fracción bloqueada: GoS = TP / TO = 10 / 25 = 0,40 (40%)."
   }
 ]
