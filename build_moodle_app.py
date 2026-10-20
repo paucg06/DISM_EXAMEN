@@ -6,7 +6,7 @@ Builds the Moodle-identical DISM exam and flashcard study web application.
 import json
 from generate_flashcards import get_flashcards
 
-with open('DISM_Examen/all_questions.json', 'r', encoding='utf-8') as f:
+with open('all_questions.json', 'r', encoding='utf-8') as f:
     questions_data = json.load(f)
 
 flashcards_data = get_flashcards()
@@ -759,29 +759,32 @@ html_content = f'''<!DOCTYPE html>
     <!-- VIEW 1: MOODLE COURSE PAGE (CUESTIONARIOS / EXÁMENES) -->
     <section id="viewHome">
       <div class="course-header">
-        <h1 class="course-title">Desarrollo de Interfaces para Sistemas Móviles</h1>
-        <p class="course-subtitle">Preparación para el examen parcial y final con banco oficial de preguntas tipo test y ejercicios de cálculo.</p>
+        <h1 class="course-title">Dispositivos e Infraestructuras para Sistemas Multimedia (DISM)</h1>
+        <p class="course-subtitle">Preparación intensiva para el examen oficial del 27 de octubre (Temas 1, 2 y 3). Simulacros oficiales de exactamente 20 preguntas.</p>
       </div>
 
-      <!-- PRIMER EXAMEN PARCIAL (FEATURED) -->
-      <div class="activity-group" style="border: 2px solid var(--moodle-blue);">
-        <div class="activity-group-header" style="background: #e7f3f5; color: var(--moodle-blue);">
-          <span>🎯</span> PRIMER EXAMEN PARCIAL (TEMAS 1 Y 2)
+      <!-- SIMULACRO EXAMEN OFICIAL (20 PREGUNTAS) -->
+      <div class="activity-group" style="border: 2px solid var(--moodle-blue); box-shadow: 0 4px 12px rgba(15, 76, 129, 0.1);">
+        <div class="activity-group-header" style="background: #e7f3f5; color: var(--moodle-blue); font-weight: 700;">
+          <span>🎯</span> SIMULACRO EXAMEN OFICIAL DISM (20 PREGUNTAS - 20 MINUTOS)
         </div>
-        <div class="activity-item" style="padding: 18px;">
+        <div class="activity-item" style="padding: 20px;">
           <div class="activity-info">
-            <span class="activity-icon">📝</span>
+            <span class="activity-icon" style="font-size: 26px;">📝</span>
             <div>
-              <a href="javascript:void(0)" class="activity-title" onclick="app.startExam('parcial1')" style="font-size: 16px;">
-                Cuestionario: Simulacro Primer Examen Parcial
+              <a href="javascript:void(0)" class="activity-title" onclick="app.startExam('parcial1')" style="font-size: 17px; font-weight: 600;">
+                Cuestionario Oficial: Simulacro Examen DISM (Temas 1, 2 y 3)
               </a>
-              <div class="activity-desc">
-                Engloba los <strong>Temas 1 y 2</strong>: Desarrollo Multiplataforma (PWA, Ionic, Flutter, React Native, MAUI) e Infraestructuras Multimedia con <strong>ejercicios de desarrollo y cálculos de discos RAID y resoluciones</strong>. 30 preguntas tipo test.
+              <div class="activity-desc" style="font-size: 13.5px; line-height: 1.5; margin-top: 6px;">
+                Estructura exacta del examen: <strong>20 preguntas tipo test</strong> (6 del Tema 1, 7 del Tema 2 y 7 del Tema 3).<br>
+                • <strong>Tema 1</strong>: Apps híbridas vs nativas y clasificación de frameworks por nombre propio.<br>
+                • <strong>Tema 2</strong>: Streaming (protocolos y arquitectura), matrices RAID y paridad XOR, formatos y codificación, compresión y arquitectura MMA.<br>
+                • <strong>Tema 3</strong>: Pantallas técnicas y displays, Wearables/Textillography, comparativa Bluetooth con Wi-Fi/Zigbee/ANT+/NFC/RFID y redes celulares (sin Erlang B).
               </div>
             </div>
           </div>
-          <button class="btn-moodle" onclick="app.startExam('parcial1')">
-            Comenzar cuestionario →
+          <button class="btn-moodle" onclick="app.startExam('parcial1')" style="padding: 10px 20px; font-size: 14.5px; font-weight: 600;">
+            Intentar cuestionario ahora →
           </button>
         </div>
       </div>
@@ -789,7 +792,7 @@ html_content = f'''<!DOCTYPE html>
       <!-- CUESTIONARIOS POR TEMA -->
       <div class="activity-group">
         <div class="activity-group-header">
-          <span>📂</span> Cuestionarios por Temas (30 preguntas cada uno)
+          <span>📂</span> Cuestionarios por Temas Oficiales (20 preguntas por intento)
         </div>
 
         <!-- Tema 1 -->
@@ -801,7 +804,7 @@ html_content = f'''<!DOCTYPE html>
                 Cuestionario Tema 1: Desarrollo Multiplataforma
               </a>
               <div class="activity-desc">
-                Nativo vs híbrido, PWA, Service Workers, Ionic, Capacitor, .NET MAUI, Flutter, React Native, KMP y Tauri.
+                Frameworks móviles: Clasificación de apps híbridas vs nativas (Ionic, Cordova, React Native, Flutter, MAUI, NativeScript, KMP, Unity), WebViews y rendimiento.
               </div>
             </div>
           </div>
@@ -817,7 +820,7 @@ html_content = f'''<!DOCTYPE html>
                 Cuestionario Tema 2: Infraestructuras Multimedia & Cálculos
               </a>
               <div class="activity-desc">
-                Streaming ABR, Netflix Open Connect, <strong>cálculos RAID (0, 1, 5, 6, 10, XOR)</strong>, <strong>resoluciones vídeo 4K/audio</strong>, MOPS y hardware MMA.
+                Streaming continuo (ABR, HLS, DASH, RTSP, RTMP), <strong>matrices RAID y paridad XOR</strong>, formatos (RGB/YUV, audio Nyquist/bitrate), compresión (lossy/lossless, RLE) y procesadores multimedia.
               </div>
             </div>
           </div>
@@ -833,49 +836,20 @@ html_content = f'''<!DOCTYPE html>
                 Cuestionario Tema 3: Dispositivos & Telefonía Móvil
               </a>
               <div class="activity-desc">
-                Hardware móvil SoC, redes GSM a 5G, handover, <strong>cálculos cluster N=i²+ij+j²</strong>, <strong>tráfico Erlangs</strong> y relación S/I.
+                Pantallas técnicas (resistiva, PCAP, SAW, OLED vs LCD), <strong>Wearables y Textillography</strong>, comparativa Bluetooth frente a otras conectividades, y telefonía celular básica (sin Erlang B).
               </div>
             </div>
           </div>
           <button class="btn-moodle btn-moodle-outline" onclick="app.startExam(3)">Entrar</button>
         </div>
 
-        <!-- Tema 4 -->
-        <div class="activity-item">
-          <div class="activity-info">
-            <span class="activity-icon">🌐</span>
-            <div>
-              <a href="javascript:void(0)" class="activity-title" onclick="app.startExam(4)">
-                Cuestionario Tema 4: IoT & Diseño de APIs REST
-              </a>
-              <div class="activity-desc">
-                Internet of Things (MQTT, CoAP), diseño de APIs REST, Swagger 2.0 vs OpenAPI 3.0, RAML y componentes.
-              </div>
-            </div>
-          </div>
-          <button class="btn-moodle btn-moodle-outline" onclick="app.startExam(4)">Entrar</button>
-        </div>
+        
       </div>
 
-      <!-- EXAMEN GLOBAL Y REPASO ESPECIAL -->
+      <!-- REPASO ESPECIAL Y PROBLEMAS -->
       <div class="activity-group">
         <div class="activity-group-header">
-          <span>🌐</span> Exámenes Globales y Repaso Práctico
-        </div>
-
-        <div class="activity-item">
-          <div class="activity-info">
-            <span class="activity-icon">🔥</span>
-            <div>
-              <a href="javascript:void(0)" class="activity-title" onclick="app.startExam('global')">
-                Examen Global Completo (Temas 1, 2, 3 y 4)
-              </a>
-              <div class="activity-desc">
-                Simulacro de examen general: 40 preguntas (10 preguntas de cada tema).
-              </div>
-            </div>
-          </div>
-          <button class="btn-moodle btn-moodle-outline" onclick="app.startExam('global')">Entrar</button>
+          <span>🧮</span> Repaso Especial de Cálculos Numéricos y Falladas
         </div>
 
         <div class="activity-item">
@@ -883,10 +857,10 @@ html_content = f'''<!DOCTYPE html>
             <span class="activity-icon">🧮</span>
             <div>
               <a href="javascript:void(0)" class="activity-title" onclick="app.startCalculationsOnly()">
-                Práctica Exclusiva: Ejercicios de Cálculo (RAID, Bits, Resoluciones, Erlangs)
+                Práctica de Problemas Numéricos y Cálculos (20 Ejercicios)
               </a>
               <div class="activity-desc">
-                Filtra únicamente los problemas matemáticos y de desarrollo del temario con resolución paso a paso.
+                Entrena exclusivamente los problemas de matrices RAID (capacidad y paridad XOR), tamaños de vídeo 4K/audio/foto, compresión RLE/ratio y clúster celular D/R.
               </div>
             </div>
           </div>
@@ -1179,23 +1153,23 @@ html_content = f'''<!DOCTYPE html>
         let pool = [];
         let title = '';
 
-        if (type === 'parcial1') {{
-          // PRIMER EXAMEN PARCIAL: TEMAS 1 Y 2
-          title = 'Simulacro Primer Examen Parcial (Temas 1 y 2)';
-          const t1 = this.shuffle(this.questions.filter(q => q.tema === 1)).slice(0, 15);
-          const t2 = this.shuffle(this.questions.filter(q => q.tema === 2)).slice(0, 15);
-          pool = this.shuffle([...t1, ...t2]);
-        }} else if (type === 'global') {{
-          title = 'Examen Global Completo (Temas 1 al 4)';
-          const t1 = this.shuffle(this.questions.filter(q => q.tema === 1)).slice(0, 10);
-          const t2 = this.shuffle(this.questions.filter(q => q.tema === 2)).slice(0, 10);
-          const t3 = this.shuffle(this.questions.filter(q => q.tema === 3)).slice(0, 10);
-          const t4 = this.shuffle(this.questions.filter(q => q.tema === 4)).slice(0, 10);
-          pool = this.shuffle([...t1, ...t2, ...t3, ...t4]);
+        if (type === 'parcial1' || type === 'oficial') {{
+          title = 'Simulacro Examen Oficial DISM (20 Preguntas - Temas 1, 2 y 3)';
+          const t1 = this.shuffle(this.questions.filter(q => q.tema === 1)).slice(0, 6);
+          const t2 = this.shuffle(this.questions.filter(q => q.tema === 2)).slice(0, 7);
+          const t3 = this.shuffle(this.questions.filter(q => q.tema === 3)).slice(0, 7);
+          pool = this.shuffle([...t1, ...t2, ...t3]);
+          this.secondsRemaining = 20 * 60;
         }} else if (typeof type === 'number') {{
-          title = `Cuestionario Tema ${{type}}`;
+          const names = {{
+            1: 'Tema 1: Frameworks Móviles (Híbridos vs Nativos)',
+            2: 'Tema 2: Infraestructuras Multimedia & RAID',
+            3: 'Tema 3: Pantallas, Wearables, Conectividad & Redes'
+          }};
+          title = `Cuestionario Oficial: ${{names[type] || 'Tema ' + type}} (20 Preguntas)`;
           const temaQuestions = this.questions.filter(q => q.tema === type);
-          pool = this.shuffle(temaQuestions).slice(0, 30);
+          pool = this.shuffle(temaQuestions).slice(0, 20);
+          this.secondsRemaining = 20 * 60;
         }}
 
         this.setupQuiz(pool, title);
@@ -1608,8 +1582,10 @@ html_content = f'''<!DOCTYPE html>
 </html>
 '''
 
-# Write to DISM_Examen/index.html
-with open('DISM_Examen/index.html', 'w', encoding='utf-8') as f:
+# Write to index.html and examen_dism.html
+with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print(f"Generated DISM_Examen/index.html successfully ({len(html_content)} bytes)")
+with open('examen_dism.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+

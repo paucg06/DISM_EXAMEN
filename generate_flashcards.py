@@ -1,362 +1,173 @@
 # -*- coding: utf-8 -*-
 """
-Flashcards data for DISM mobile study.
-Concise, direct, high-yield summary cards per topic for quick study on the bus.
+Flashcards data for DISM exam preparation.
+Focused strictly on the syllabus for the official exam (Topics 1, 2, and 3).
 """
 
 def get_flashcards():
     return [
         # ==========================================
-        # TEMA 1: DESARROLLO MULTIPLATAFORMA
+        # TEMA 1: FRAMEWORKS (HÍBRIDO VS NATIVO)
         # ==========================================
         {
             "tema": 1,
-            "category": "Conceptos",
-            "title": "Nativo vs Híbrido vs PWA",
+            "category": "Frameworks",
+            "title": "Apps Híbridas vs Nativas (Clave Examen)",
             "bullets": [
-                "Nativo: Escrito en el lenguaje oficial (Swift en iOS, Kotlin en Android). Máximo rendimiento, acceso total al hardware, pero requiere mantener dos equipos de desarrollo separados.",
-                "Híbrido: Web technologies (HTML+CSS+JS) empaquetadas en un contenedor nativo (WebView). Reutiliza código pero tiene menor rendimiento en animaciones 3D y juegos.",
-                "PWA (Progressive Web App): Aplicación web estándar que utiliza Service Workers y Web App Manifest para instalarse en el launcher y funcionar offline sin pasar por las tiendas de apps."
+                "Apps Híbridas: Se ejecutan dentro de un WebView o contenedor web usando HTML, CSS y JavaScript. Requieren plugins/bridges para acceder al hardware del móvil.",
+                "Apps Nativas: Se compilan y ejecutan directamente sobre el sistema operativo, interactuando directamente con las APIs y componentes nativos.",
+                "Clasificación Oficial del Temario: Son Híbridas: Apache Cordova, Ionic y Unity (por requerir contenedor/runtime). Son Nativas: React Native, NativeScript, Xamarin y .NET MAUI."
             ],
-            "key": "Regla: Nativo para rendimiento extremo; Híbrido/PWA para rentabilidad y reutilización de equipo web."
-        },
-        {
-            "tema": 1,
-            "category": "Mercado",
-            "title": "Mercado: App Store vs Google Play",
-            "bullets": [
-                "Google Play Store tiene más del doble de descargas totales en el mundo debido a la cuota de mercado de Android.",
-                "Apple App Store genera casi el doble de ingresos monetarios y gasto de usuarios que Google Play.",
-                "Categoría líder: Los videojuegos móviles (Gaming) generan más del 60-70% de todos los ingresos de las tiendas de apps."
-            ],
-            "key": "Clave examen: App Store gana en facturación; Google Play gana en número de descargas."
+            "key": "Híbrido = WebView / Contenedor. Nativo = Ejecución directa en SO sin WebView."
         },
         {
             "tema": 1,
             "category": "Frameworks",
-            "title": "Historia: PhoneGap, Cordova y Xamarin",
+            "title": "Catálogo de Frameworks por Nombre Propio",
             "bullets": [
-                "PhoneGap: Creado por Nitobi en 2009, comprado por Adobe en 2011 y donado a Apache como Apache Cordova.",
-                "Cordova: Desfasado hoy frente a Capacitor por su gestión rígida de plugins y ocultación de proyectos nativos.",
-                "Xamarin: Creado sobre Mono (C#) y adquirido por Microsoft en 2016. Su evolución y sustituto oficial desde mayo de 2022 es .NET MAUI."
+                "Apache Cordova / PhoneGap: Híbrido histórico (HTML/CSS/JS en WebView con plugins).",
+                "Ionic + Capacitor: Híbrido moderno (Web Components en WebView con puente nativo).",
+                "React Native: Nativo (lógica en JavaScript, pero UI renderizada con componentes nativos de iOS y Android).",
+                "Flutter: Nativo (lenguaje Dart, motor gráfico propio en canvas nativo a 60/120 fps sin WebView ni widgets del SO).",
+                "Xamarin / .NET MAUI: Nativo (lenguaje C# y XAML, compila a código nativo en cada plataforma).",
+                "NativeScript: Nativo (código JS/TS con mapeo directo a APIs nativas de iOS/Android).",
+                "Kotlin Multiplatform (KMP): Nativo (comparte lógica en Kotlin compilando a nativo en iOS y JVM en Android)."
             ],
-            "key": "Clave examen: PhoneGap -> Apache Cordova. Xamarin -> .NET MAUI."
-        },
-        {
-            "tema": 1,
-            "category": "Ionic",
-            "title": "Ionic & Capacitor",
-            "bullets": [
-                "Ionic: Librería de Web Components (creada con Stencil.js) compatible con Angular, React, Vue o JS plano.",
-                "Capacitor: Runtime moderno que sustituye a Cordova. Los proyectos 'android' e 'ios' son carpetas nativas reales de primer nivel (editables en Android Studio y Xcode).",
-                "Native Bridge: Inyecta window.Capacitor.Plugins para comunicar JavaScript con las APIs nativas del SO.",
-                "Platform Styling: Aplica automáticamente Material Design ('md') en Android y Cupertino ('ios') en iPhone.",
-                "Comando clave: 'npx cap sync' copia los assets web y actualiza dependencias nativas."
-            ],
-            "key": "Ventaja: Misma base de código web para iOS, Android y Web. Desventaja: Rendimiento en WebView."
-        },
-        {
-            "tema": 1,
-            "category": "PWA",
-            "title": "PWA: Manifest y Service Worker",
-            "bullets": [
-                "Web App Manifest (manifest.json): Define nombre, iconos, color de tema, orientación y 'display: standalone'.",
-                "Service Worker: Script JavaScript que corre en segundo plano en un hilo separado del DOM (proxy de red).",
-                "Requisito obligatorio: Debe servirse bajo HTTPS (salvo en localhost) por seguridad.",
-                "Ciclo de vida: 1. Install (cachear App Shell inicial) -> 2. Activate (limpiar cachés viejas) -> 3. Fetch/Push (interceptar peticiones de red o recibir push)."
-            ],
-            "key": "Clave examen: En el evento 'install' se usa 'event.waitUntil()' para esperar a que termine de cachear."
-        },
-        {
-            "tema": 1,
-            "category": "PWA",
-            "title": "PWA: Estrategias de Caché",
-            "bullets": [
-                "Cache First: Busca en caché primero; si no está, va a la red. Ideal para App Shell y assets estáticos inmutables.",
-                "Network First: Intenta la red primero; si falla o hay timeout, usa la caché. Ideal para noticias y cotizaciones frescas.",
-                "Stale-While-Revalidate: Devuelve la versión en caché instantáneamente y descarga en segundo plano la nueva versión para actualizar la caché. Ideal para avatares y perfiles.",
-                "Network Only: Solo red (transacciones bancarias). Cache Only: Solo caché (modo offline forzado)."
-            ],
-            "key": "Regla: Estático -> Cache First. Dinámico -> Network First. Rápido + fresco -> Stale-While-Revalidate."
+            "key": "Memoriza: Ionic/Cordova/Unity -> HÍBRIDOS. React Native/Flutter/MAUI/Xamarin/NativeScript/KMP -> NATIVOS."
         },
         {
             "tema": 1,
             "category": "Frameworks",
-            "title": ".NET MAUI & Uno Platform",
+            "title": "Ventajas e Inconvenientes: Nativo vs Híbrido",
             "bullets": [
-                ".NET MAUI (.NET Multi-platform App UI): Framework oficial de Microsoft en C# y XAML para iOS, Android, Windows y macOS.",
-                "Arquitectura: Utiliza el patrón 'Handlers / Mappers' para conectar directamente con los widgets nativos del SO (sustituyendo a los lentos 'Renderers' de Xamarin).",
-                "Uno Platform: Alternativa comunitaria que lleva la API de WinUI / XAML a Web (WebAssembly), Linux, iOS y Android."
+                "Nativo: Máximo rendimiento, fluidez en gráficos/animaciones complejas y acceso directo a sensores/cámara. Desventaja: Mayor coste y duplicidad de equipos de desarrollo.",
+                "Híbrido: Menor tiempo de desarrollo (Time-to-Market) y menor coste al compartir una sola base de código web. Desventaja: Rendimiento inferior en WebView y dependencia de plugins para el hardware."
             ],
-            "key": "Clave examen: .NET MAUI renderiza controles nativos reales del SO usando C# y XAML."
-        },
-        {
-            "tema": 1,
-            "category": "Frameworks",
-            "title": "Flutter (Google & Dart)",
-            "bullets": [
-                "Lenguaje: Dart. Creado y mantenido por Google.",
-                "Renderizado único: NO usa los widgets de Android ni iOS. Flutter dibuja cada píxel en un canvas de la GPU mediante su propio motor gráfico (Skia y modernamente Impeller en C++).",
-                "Compilación: En modo release compila AOT (Ahead-Of-Time) a código máquina ARM nativo.",
-                "Widgets: Todo es un Widget. StatelessWidget (inmutable) y StatefulWidget (mantiene estado con setState()).",
-                "Desarrollo: Stateful Hot Reload inyecta código en caliente en menos de un segundo sin perder el estado."
-            ],
-            "key": "Clave examen: Garantiza consistencia pixel-perfect idéntica en cualquier pantalla porque dibuja su propia UI."
-        },
-        {
-            "tema": 1,
-            "category": "Frameworks",
-            "title": "React Native (Meta)",
-            "bullets": [
-                "Lenguaje: JavaScript / TypeScript con sintaxis declarativa de React y JSX.",
-                "Renderizado: Mapea componentes (<View>, <Text>) a componentes nativos reales (UIView en iOS, View en Android).",
-                "Motor de Layout: Yoga (motor Flexbox escrito en C++ de alto rendimiento).",
-                "Motor JS: Hermes (motor ligero optimizado para móviles de Meta con precompilación de bytecode).",
-                "Nueva Arquitectura: JSI (JavaScript Interface) permite invocar C++ síncronamente sin serializar en JSON; Fabric (renderizado) y TurboModules (módulos nativos bajo demanda)."
-            ],
-            "key": "Clave examen: React Native renderiza widgets nativos del SO calculados con Yoga Flexbox."
-        },
-        {
-            "tema": 1,
-            "category": "Frameworks",
-            "title": "Kotlin Multiplatform (KMP) & Tauri",
-            "bullets": [
-                "KMP (JetBrains): Comparte la lógica de negocio (red, base de datos, modelos) en Kotlin común, pero deja la UI 100% nativa (SwiftUI en iOS, Jetpack Compose en Android).",
-                "Kotlin/Native: Compila a binario nativo Objective-C/Swift para iOS sin necesitar máquina virtual Java (JVM).",
-                "Tauri: Backend en Rust de ultra alta seguridad y frontend web (HTML/CSS/JS). No empaqueta Chromium (como Electron), sino que usa el WebView nativo del SO (WebView2 en Windows, WebKit en Apple). Binarios de <10 MB."
-            ],
-            "key": "KMP = Lógica compartida en Kotlin + UI nativa. Tauri = Backend Rust + WebView nativo."
+            "key": "Regla: Nativo para rendimiento extremo; Híbrido para rapidez de lanzamiento y bajo coste."
         },
 
         # ==========================================
-        # TEMA 2: MULTIMEDIA & CÁLCULOS
+        # TEMA 2: STREAMING, RAID, FORMATOS Y ARQUITECTURA
         # ==========================================
         {
             "tema": 2,
             "category": "Streaming",
-            "title": "Streaming ABR & Netflix",
+            "title": "Streaming vs Descarga y Modelos OTT",
             "bullets": [
-                "ABR (Adaptive Bitrate Streaming): El vídeo se trocea en fragmentos (2 a 10 s) en varias calidades. El reproductor mide el ancho de banda y pide el segmento adecuado. Protocolos: HLS (Apple, .m3u8) y MPEG-DASH (.mpd).",
-                "Modelos OTT: SVOD (Suscripción: Netflix), AVOD (Publicidad: YouTube), TVOD (Transaccional/Alquiler: iTunes).",
-                "Caso Netflix: Servidores OCA (Open Connect Appliances) instalados dentro de los centros de datos de los ISPs locales para servir el vídeo; AWS gestiona catálogo, usuarios y transcodificación."
+                "Streaming: Reproducción continua sin esperar a completar la descarga; los datos se almacenan en un buffer temporal y se descartan tras verse (no guarda archivo permanente).",
+                "Live Streaming vs VOD: Live es emisión en directo con retraso mínimo y sin control de avance rápido; VOD (Video on Demand) permite pausar, rebobinar y elegir el momento.",
+                "Modelos OTT: AVOD (gratuito con publicidad, ej. YouTube gratis), SVOD (suscripción periódica, ej. Netflix), TVOD / PPV (alquiler puntual o pago por evento único)."
             ],
-            "key": "Clave examen: Open Connect en ISPs locales evita saturar las troncales de internet."
+            "key": "Streaming = buffer temporal en RAM sin copia permanente en disco local."
+        },
+        {
+            "tema": 2,
+            "category": "Streaming",
+            "title": "Arquitectura Streaming, ABR y Protocolos",
+            "bullets": [
+                "ABR (Adaptive Bitrate): El vídeo se divide en fragmentos cortos (2-10 s) a múltiples calidades/bitrates. El cliente conmuta dinámicamente según ancho de banda y CPU.",
+                "HLS (HTTP Live Streaming de Apple) y MPEG-DASH (estándar ISO abierto): Ambos usan HTTP y TCP mediante manifiestos (.m3u8 en HLS, .mpd en DASH).",
+                "RTSP (Real-Time Streaming Protocol): Protocolo de control de sesión (Play, Pause, Record, Teardown) actuando como mando a distancia de red.",
+                "RTP (Real-time Transport Protocol) sobre UDP: Envía los paquetes de medios con marcas de tiempo (timestamp) y números de secuencia.",
+                "Proxy de Streaming: Servidor intermedio que almacena segmentos en caché, reduciendo el tráfico saliente del servidor principal y la latencia."
+            ],
+            "key": "RTSP controla sesión. RTP transmite medios sobre UDP. HLS/DASH usan HTTP/TCP con ABR."
         },
         {
             "tema": 2,
             "category": "RAID",
-            "title": "Fórmulas Clave de RAID",
+            "title": "Matrices RAID: Fórmulas y Tolerancia a Fallos",
             "bullets": [
-                "RAID 0 (Striping): Capacidad = N × S. Velocidad = N×. Tolerancia = 0 fallos (si muere 1 disco, se pierde todo).",
-                "RAID 1 (Mirroring): Capacidad = 1 × S (en 2 discos). Tolera fallo de 1 disco.",
-                "RAID 5 (Paridad distribuida): Capacidad = (N - 1) × S. Mínimo 3 discos. Tolera fallo de 1 disco. Paridad XOR bit a bit.",
-                "RAID 6 (Doble paridad): Capacidad = (N - 2) × S. Mínimo 4 discos. Tolera fallo simultáneo de 2 discos.",
-                "RAID 10 (1+0): Capacidad = (N / 2) × S. Mínimo 4 discos. Tolera hasta 1 fallo por pareja espejo."
+                "RAID 0 (Striping): Capacidad = N * C. Tolera 0 fallos (si falla 1 disco, se pierde todo). Máximo rendimiento.",
+                "RAID 1 (Mirroring): Capacidad = C. Tolera N - 1 fallos. Espejo exacto con redundancia total.",
+                "RAID 5 (Paridad distribuida): Mínimo 3 discos. Capacidad = (N - 1) * C. Tolera 1 fallo. Paridad calculada con XOR.",
+                "RAID 6 (Doble paridad distribuida): Mínimo 4 discos. Capacidad = (N - 2) * C. Tolera hasta 2 fallos simultáneos.",
+                "RAID 10 (1+0, Striping de Mirrors): Mínimo 4 discos. Capacidad = (N / 2) * C. Tolera 1 fallo por subgrupo espejo.",
+                "Cálculo de Paridad XOR: A ⊕ B ⊕ C = P. Bits con número impar de 1s dan 1; número par de 1s dan 0. Para actualizar: P_nueva = D_nueva ⊕ D_antigua ⊕ P_antigua."
             ],
-            "key": "Ejemplo: 4 discos de 4 TB en RAID 5 = (4 - 1) × 4 = 12 TB útiles."
+            "key": "Capacidades: RAID 5 -> (N-1)*C. RAID 6 -> (N-2)*C. RAID 10 -> (N/2)*C."
         },
         {
             "tema": 2,
-            "category": "Cálculos RAID",
-            "title": "Cálculo de Paridad XOR en RAID 5",
+            "category": "Formatos y Codificación",
+            "title": "Formatos: Texto, Imagen, Audio y Compresión",
             "bullets": [
-                "Regla XOR: Bits iguales dan 0 (0⊕0=0, 1⊕1=0). Bits diferentes dan 1 (1⊕0=1, 0⊕1=1).",
-                "Ejemplo de clase: D1 = 1010, D2 = 1100, D3 = 0011.\n1) 1010 ⊕ 1100 = 0110\n2) 0110 ⊕ 0011 = 0101 -> Paridad P = 0101.",
-                "Actualización de paridad (Read-Modify-Write): Para no leer todos los discos, se calcula:\nP_nuevo = P_viejo ⊕ D_viejo ⊕ D_nuevo.\nRequiere solo 2 lecturas y 2 escrituras."
+                "Texto: ASCII usa 7 bits (128 caracteres); ASCII extendido usa 8 bits (1 byte); UTF-8 usa entre 1 y 4 bytes (compatible con ASCII).",
+                "Imagen: RGB de 24 bits (3 canales x 8 bits = 16,7 millones de colores). BMP (sin comprimir), PNG (lossless con canal alfa), GIF (8 bits, 256 colores), JPEG (lossy mediante DCT).",
+                "Audio Digital: Muestreo de Nyquist (fs >= 2 * fmax). Calidad CD = 44.1 kHz, 16 bits, 2 canales (estéreo). Bitrate CD = 44.100 * 16 * 2 = 1.411.200 bps (~1,41 Mbps).",
+                "Compresión Lossless vs Lossy: Lossless (PNG, FLAC, RLE, ZIP) recupera el 100% idéntico. Lossy (JPEG, MP3) descarta información psicovisual/psicoacústica imperceptible.",
+                "Compresión RLE: Sustituye repeticiones 'AAAAABBBCC' por '5A3B2C'. Ratio = Tamaño Original / Tamaño Comprimido."
             ],
-            "key": "Si P_viejo = 1111, D_viejo = 1010, D_nuevo = 0001:\n1111 ⊕ 1010 = 0101 -> 0101 ⊕ 0001 = 0100."
+            "key": "Fórmula Nyquist: fs >= 2 * fmax. Bitrate = Frecuencia * Bits * Canales."
         },
         {
             "tema": 2,
-            "category": "Cálculos Multimedia",
-            "title": "Cálculo: Tamaño de Imagen sin comprimir",
+            "category": "Arquitectura Multimedia",
+            "title": "Procesadores y Hardware Multimedia (MMA)",
             "bullets": [
-                "Fórmula: Tamaño = Ancho × Alto × (Profundidad en bits / 8).",
-                "Foto 12 Mpx (4000 × 3000) a 24 bits (TrueColor = 3 Bytes/píxel):\n4000 × 3000 = 12.000.000 píxeles.\n12.000.000 × 3 Bytes = 36.000.000 Bytes = 36 MB.",
-                "Foto 48 Mpx (8000 × 6000) a 24 bits (3 Bytes):\n48.000.000 × 3 = 144.000.000 Bytes = 144 MB.",
-                "Imagen 320 × 240 a 24 bits:\n76.800 × 3 = 230.400 Bytes / 1024 = 225 KB."
+                "CISC vs RISC: CISC tiene instrucciones complejas multietapa; RISC tiene instrucciones simples de un solo ciclo y arquitectura regular.",
+                "DSP (Digital Signal Processor): Arquitectura Harvard y unidad MAC (Multiplicación-Acumulación) en un solo ciclo para procesar señales de audio/vídeo en tiempo real.",
+                "NPU (Neural Processing Unit): Hardware especializado en operaciones matriciales masivas para acelerar redes neuronales e IA móvil.",
+                "ASIC: Circuito integrado dedicado no programable. Máximo rendimiento y eficiencia energética, pero coste fijo de diseño muy alto y cero flexibilidad.",
+                "FPGA: Dispositivo reconfigurable en campo por hardware mediante descripción HDL (VHDL/Verilog). Alta flexibilidad post-fabricación.",
+                "Métricas: Complejidad computacional en MOPS (millones de operaciones/s) y GOPS (giga-operaciones/s)."
             ],
-            "key": "24 bits/píxel siempre equivale a multiplicar por 3 Bytes. 32 bits equivale a 4 Bytes."
-        },
-        {
-            "tema": 2,
-            "category": "Cálculos Multimedia",
-            "title": "Cálculo: Tamaño de Vídeo sin comprimir",
-            "bullets": [
-                "Fórmula: Píxeles/frame × Bytes/píxel × FPS × Segundos de duración.",
-                "Vídeo 4K UHD (3840 × 2160), 24 bits (3 B), 25 fps, 15 min (900 s):\n1) 3840 × 2160 = 8.294.400 píxeles/frame.\n2) 8.294.400 × 3 = 24.883.200 Bytes/frame (~24,88 MB).\n3) × 25 fps = 622.080.000 Bytes/s (~622 MB/s).\n4) × 900 s = 559.872.000.000 Bytes ≈ 559,87 GB.",
-                "Vídeo 1080p (1920 × 1080), 32 bits (4 B), 30 fps en 1 minuto:\n2.073.600 × 4 × 30 × 60 ≈ 14,93 GB/min (~13,90 GiB/min)."
-            ],
-            "key": "Muestra por qué la compresión de vídeo es imprescindible para almacenar o transmitir."
-        },
-        {
-            "tema": 2,
-            "category": "Cálculos Multimedia",
-            "title": "Cálculo: Vídeo por Bitrate & Audio",
-            "bullets": [
-                "Vídeo por Bitrate: Tamaño = Bitrate (bps) × Segundos / 8.\nVídeo 4K a 15 Mbit/s en 15 minutos (900 s):\n15 Mbit/s × 900 s = 13.500 Mbit / 8 = 1687,5 MB ≈ 1,69 GB.",
-                "Audio CD (44.100 Hz, 16 bits = 2 B, 2 canales estéreo):\n44.100 × 2 × 2 = 176.400 Bytes/s × 60 s = 10,58 MB/min (mono: 5,29 MB/min).",
-                "Audio Hi-Res (96.000 Hz, 24 bits = 3 B, 2 canales estéreo):\n96.000 × 2 × 3 = 576.000 Bytes/s × 60 s = 34,56 MB/min."
-            ],
-            "key": "Para pasar de Megabits a MegaBytes siempre divide entre 8."
-        },
-        {
-            "tema": 2,
-            "category": "Hardware",
-            "title": "Hardware Multimedia (MMA): DSP, NPU, ASIC, FPGA",
-            "bullets": [
-                "DSP (Digital Signal Processor): Arquitectura Harvard (buses separados para código y datos), instrucción MAC (Multiply-Accumulate en 1 ciclo), direccionamiento circular y de inversión de bits para FFT.",
-                "NPU (Neural Processing Unit): Acelera operaciones matriciales/tensoriales para inferencia de redes neuronales e IA on-device con bajo consumo.",
-                "ASIC: Circuito integrado dedicado cableado en silicio de fábrica. Máximo rendimiento, 0 flexibilidad.",
-                "FPGA: Matriz de puertas lógicas reconfigurable mediante software (HDL). Flexible y sin costes NRE de fabricación."
-            ],
-            "key": "MPEG-2 decode complejidad: 609-740 MOPS (IDCT, YUV->RGB, decuantificación, compensación de movimiento)."
+            "key": "DSP para señal y MAC. NPU para IA. ASIC para eficiencia máxima fija. FPGA para reconfigurabilidad."
         },
 
         # ==========================================
-        # TEMA 3: DISPOSITIVOS & REDES CELULARES
+        # TEMA 3: PANTALLAS, WEARABLES, CONECTIVIDADES Y REDES
         # ==========================================
         {
             "tema": 3,
-            "category": "Hardware Móvil",
-            "title": "Procesadores Móviles: RISC, ARM y SoC",
+            "category": "Pantallas",
+            "title": "Pantallas Táctiles y Tecnologías de Display",
             "bullets": [
-                "RISC vs CISC: RISC domina en móviles porque sus instrucciones simples de longitud fija requieren menos transistores, reduciendo drásticamente el consumo energético y el calor disipado.",
-                "Modelo ARM: No fabrica chips; diseña y licencia arquitecturas e IP cores (Cortex-A para apps, Cortex-R para tiempo real, Cortex-M para IoT).",
-                "big.LITTLE / DynamIQ: Combina núcleos de alta eficiencia con núcleos de alta potencia en el mismo procesador.",
-                "SoC (System on a Chip): Integra CPU, GPU, NPU/DSP, módem 4G/5G, ISP de cámara y RAM en una única pastilla de silicio."
+                "Resistivas: Presión mecánica entre 2 láminas conductoras flexibles. Funcionan con cualquier puntero o guantes, pero no admiten multitouch y tienen menor luminosidad.",
+                "Capacitivas Proyectadas (PCAP): Matriz de electrodos en cuadrícula X-Y; detectan distorsión electrostática del dedo humano. Admiten multitouch real (pinch to zoom) y gran durabilidad.",
+                "SAW (Onda Acústica Superficial): Transductores ultrasónicos en cristal puro. Claridad óptica total (100%), pero sensibles a gotas de agua o suciedad.",
+                "In-Cell vs On-Cell: On-cell coloca la capa táctil sobre el filtro de color; In-cell integra los sensores táctiles directamente dentro de la matriz del display (más finas y brillantes).",
+                "Displays: LCD requiere retroiluminación trasera (backlight). IPS ofrece amplios ángulos de visión (178°). OLED/AMOLED: cada píxel orgánico emite su propia luz; negros puros (píxel apagado = contraste infinito) y menor consumo con fondos negros."
             ],
-            "key": "Clave examen: RISC domina en smartphones por su relación rendimiento/vatio."
+            "key": "PCAP = multitouch con dedo. Resistiva = presión con guante/objeto. OLED = negros puros y contraste infinito."
         },
         {
             "tema": 3,
             "category": "Wearables",
-            "title": "Wearables & Textillography",
+            "title": "Wearables y Textillography (Prendas Inteligentes)",
             "bullets": [
-                "Niveles de integración textil: 1. Electrónica añadida (módulo externo o clip) -> 2. Electrónica integrada (sensores/hilos cosidos o bordados) -> 3. La tela como dispositivo (la propia tela tejida con hilos conductores es sensor y bus).",
-                "Capas de la prenda inteligente: Capa exterior (protección), capa intermedia (electrónica y cableado conductor), capa interior (confort en contacto con la piel).",
-                "Retos principales: Resistencia a ciclos de lavado, detergentes químicos, sudor salino humano y flexión mecánica."
+                "Wearables: Dispositivos electrónicos diseñados para ser vestidos pegados al cuerpo, 'always-on', ergonómicos y con bajo consumo energético.",
+                "Textillography: Disciplina tecnológica que integra electrónica, sensores, interconexiones y fibras conductoras dentro de la estructura propia de los tejidos textiles.",
+                "Capas de la prenda inteligente: Capa interna (contacto piel / bioseñales), capa intermedia (interconexión y buses conductores) y capa exterior (protección y aislamiento).",
+                "Materiales conductores: Hilos de plata, cobre, acero inoxidable o polímeros conductores electroactivos.",
+                "Principales retos técnicos: Resistencia mecánica al doblado y lavados agresivos continuos, autonomía/alimentación energética y privacidad de datos biomédicos."
             ],
-            "key": "Clave examen: La textillografía utiliza fibras de plata, cobre y polímeros conductores."
-        },
-        {
-            "tema": 3,
-            "category": "Pantallas",
-            "title": "Pantallas Táctiles & Displays",
-            "bullets": [
-                "Resistiva: Presión mecánica entre 2 capas conductoras ITO. Funciona con guantes o estilete. Un solo toque. Menor transparencia.",
-                "Capacitiva Proyectada (PCAP): Rejilla de electrodos X/Y que detecta cambios de capacitancia por el dedo. Multitáctil nativa. Estándar en todos los smartphones.",
-                "SAW (Onda acústica): Ondas ultrasónicas sobre vidrio puro. Máxima transparencia y claridad.",
-                "In-cell vs On-cell: In-cell integra los sensores táctiles dentro de las capas del propio display LCD/OLED, haciéndolo más delgado y con menos reflejos.",
-                "LCD vs AMOLED: LCD necesita retroiluminación trasera permanente. AMOLED tiene píxeles autoemisivos, logrando negros puros al apagarse (contraste infinito y ahorro de batería)."
-            ],
-            "key": "Pantalla Retina: Densidad de píxeles (>300 ppi) donde el ojo humano a distancia normal no distingue los píxeles."
+            "key": "Textillography = e-textiles con fibras conductoras integradas en la prenda. Retos = lavados y batería."
         },
         {
             "tema": 3,
             "category": "Conectividad",
-            "title": "Conectividad de Corto Alcance",
+            "title": "Bluetooth frente a otras Conectividades",
             "bullets": [
-                "BLE (Bluetooth Low Energy): Ráfagas cortas de datos con reposo profundo (años con pila de botón). Ideal para pulseras y beacons.",
-                "ANT / ANT+: Protocolo propietario de ultra bajo consumo en 2,4 GHz para sensores deportivos (Garmin).",
-                "Zigbee: Redes en malla (Mesh) de bajo consumo para domótica basadas en IEEE 802.15.4.",
-                "RFID vs NFC: RFID alcanza metros (unidireccional); NFC opera estrictamente a 13,56 MHz con alcance <4-10 cm, bidireccional y soporta modo emulación de tarjeta segura (Apple Pay / Google Wallet)."
+                "Bluetooth / BLE: Banda ISM 2.4 GHz con salto de frecuencia (FHSS). BLE (Bluetooth Low Energy) optimizado para ráfagas cortas de datos con batería de meses o años (pila de botón).",
+                "Wi-Fi (IEEE 802.11): Gran caudal de datos (Mbps a Gbps) y alcance (~50-100 m), pero alto consumo de batería (no apto para sensores diminutos).",
+                "Zigbee (IEEE 802.15.4): Bajo consumo, baja velocidad (250 kbps), banda 2.4 GHz y topología en malla (Mesh) para domótica e IoT.",
+                "ANT / ANT+: Protocolo propietario ultraligero en 2.4 GHz para sensores deportivos de fitness (pulsómetros, cadencia) con topología uno a muchos.",
+                "RFID vs NFC: RFID pasivo no usa batería (se alimenta del campo electromagnético del lector) para inventario. NFC opera a 13.56 MHz a menos de 4-10 cm con seguridad física extrema para pagos móviles y emparejamiento instantáneo."
             ],
-            "key": "Clave examen: NFC deriva de RFID en 13,56 MHz con alcance de centímetros para pagos seguros."
+            "key": "BLE para bajo consumo en periféricos. Wi-Fi para ancho de banda. Zigbee para malla. NFC para pagos (<10 cm)."
         },
         {
             "tema": 3,
-            "category": "Red Celular",
-            "title": "Arquitectura Red Celular & Handover",
+            "category": "Telefonía Celular",
+            "title": "Redes Móviles, Clusters Celulares y Handover",
             "bullets": [
-                "Elementos: Terminal (MS) -> Estación Base (BTS en 2G, NodeB en 3G, eNodeB en 4G, gNodeB en 5G) -> Controlador (BSC/RNC) -> Núcleo (MSC).",
-                "Registros: HLR (base de datos permanente de abonados), VLR (visitantes en la zona), EIR (IMEI listas blanca/negra), AUC (autenticación y claves).",
-                "Paging: Búsqueda del móvil en reposo por aviso en todas las celdas del Location Area.",
-                "Handover: Hard Handover (break-before-make en GSM/LTE) vs Soft Handover (make-before-break en 3G UMTS).",
-                "MAHO (Mobile-Assisted Handover): El móvil mide la señal vecina y la red decide el traspaso.",
-                "Canales de guarda: Reserva de canales en la celda para dar prioridad a los traspasos sobre llamadas nuevas."
+                "Generaciones: 1G (analógica, voz), 2G (GSM digital, SMS), 3G (UMTS datos), 4G (LTE todo IP), 5G (baja latencia <1ms y alta densidad IoT).",
+                "Fórmula de Clúster Celular: N = i^2 + i*j + j^2 (valores válidos: 1, 3, 4, 7, 9, 12, 13, 19...). Canales por celda: k = T / N.",
+                "Distancia de Reutilización Cocanal: D/R = sqrt(3*N). A mayor clúster N, mayor distancia cocanal D/R y menor interferencia (mayor S/I), pero menor capacidad de tráfico por celda.",
+                "Handover (Traspaso): Hard Handover ('break before make', corta antes de conectar, típico en GSM); Soft Handover ('make before break', conecta a la nueva celda antes de soltar la vieja, en 3G/CDMA).",
+                "Aumento de Capacidad: Cell Splitting (división celular en microceldas conservando D/R) y Sectorización (antenas directivas a 120° o 60° para reducir interferentes cocanales)."
             ],
-            "key": "Cell Splitting: Subdivide celdas en microceldas para multiplicar la capacidad sin nuevo espectro."
-        },
-        {
-            "tema": 3,
-            "category": "Cálculos Celulares",
-            "title": "Fórmula de Cluster Celular & Canales",
-            "bullets": [
-                "Fórmula del cluster: N = i² + j² + i·j (con i, j enteros no negativos).\n- (2, 0) -> N = 4 + 0 + 0 = 4\n- (2, 1) -> N = 4 + 1 + 2 = 7\n- (2, 2) -> N = 4 + 4 + 4 = 12",
-                "Canales por celda: K = T / N (T = canales dúplex totales).\nSi T = 420 y N = 7 -> K = 420 / 7 = 60 canales/celda.",
-                "Factor de reutilización: 1 / N (en cluster 7 es 1/7).",
-                "Capacidad del sistema: M × T (donde M = Nº total celdas / N).\nPara 84 celdas y N = 7: M = 84 / 7 = 12 clusters -> Capacidad = 12 × 420 = 5.040 canales."
-            ],
-            "key": "Compromiso: Menor N da más canales y capacidad (M×T), pero aumenta la interferencia cocanal."
-        },
-        {
-            "tema": 3,
-            "category": "Cálculos Celulares",
-            "title": "Cálculo: Interferencia Cocanal (S/I) & Decibelios",
-            "bullets": [
-                "Distancia cocanal: D/R = √(3N).\nPara N = 7: D/R = √21 ≈ 4,58. Si R = 2 km -> Distancia D ≈ 9,17 km.",
-                "Relación S/I: S/I = (√(3N))^n / 6 (con 6 interferentes y exponente n=4).\nS/I = (√21)⁴ / 6 = 21² / 6 = 441 / 6 = 73,5 lineal.\nEn decibelios: 10 · log10(73,5) ≈ 18,66 dB (estándar GSM exige ~18 dB).",
-                "Reglas rápidas en dB:\n- Factor ×10 de potencia = +10 dB.\n- Factor ×2 de potencia = +3 dB (÷2 = -3 dB).\nEjemplo: Relación 40 = 10 × 2 × 2 -> 10 + 3 + 3 = 16 dB."
-            ],
-            "key": "Clave examen: N = 7 proporciona exactamente ~18,66 dB, por eso es el cluster estándar en 2G."
-        },
-        {
-            "tema": 3,
-            "category": "Cálculos Celulares",
-            "title": "Cálculo: Tráfico en Erlangs & Grado de Servicio",
-            "bullets": [
-                "Erlang: Unidad de tráfico telefónico. 1 Erlang = uso continuo de 1 canal durante 1 hora (60 minutos de llamada).",
-                "Intensidad de tráfico: A = (Nº llamadas × duración media) / Tiempo de observación.",
-                "Ejercicio de examen: 500 llamadas de 4 minutos en 3 horas (180 min):\nVolumen = 500 × 4 = 2.000 min de llamada.\nIntensidad A = 2.000 / 180 ≈ 11,11 Erlangs.",
-                "Grado de Servicio (GoS o bloqueo): GoS = Tráfico Perdido / Tráfico Ofrecido.\nSi se ofrecen 60 Erlangs y se pierden 3 Erlangs: GoS = 3 / 60 = 5% (Tráfico cursado = 57 Erlangs)."
-            ],
-            "key": "Clave examen: A = (N × d) / T. Tráfico Perdido = Tráfico Ofrecido - Tráfico Cursado."
-        },
-
-        # ==========================================
-        # TEMA 4: IoT & DISEÑO DE APIs REST
-        # ==========================================
-        {
-            "tema": 4,
-            "category": "IoT",
-            "title": "Internet of Things: Fundamentos",
-            "bullets": [
-                "Origen: Kevin Ashton acuñó el término en 1999 en el Auto-ID Center del MIT (con tecnología RFID).",
-                "Sensores vs Actuadores: Sensores miden magnitudes físicas (temperatura, luz, presión); Actuadores ejecutan acciones físicas en el entorno (motores, relés, válvulas).",
-                "Protocolo MQTT: Publicación/Suscripción mediante Broker. Cabecera ultra ligera de 2 bytes. Niveles de calidad: QoS 0 (como mucho una vez), QoS 1 (al menos una vez), QoS 2 (exactamente una vez).",
-                "Protocolo CoAP: Modelo REST sobre UDP (cabecera de 4 bytes) para nodos extremadamente limitados."
-            ],
-            "key": "Clave examen: MQTT = Publish/Subscribe sobre TCP con Broker. CoAP = REST sobre UDP."
-        },
-        {
-            "tema": 4,
-            "category": "APIs REST",
-            "title": "Principios REST & Verbos HTTP",
-            "bullets": [
-                "Principios REST: Stateless (sin estado en servidor), Cliente-Servidor, Cacheable, Interfaz Uniforme, Sistema en Capas.",
-                "Idempotencia: Ejecutar la petición varias veces produce el mismo estado en el servidor.\n- Idempotentes: GET (seguro/lectura), PUT (reemplazo completo), DELETE (borrado).\n- No idempotente: POST (cada llamada crea un nuevo recurso independiente).",
-                "Códigos HTTP clave:\n- 200 OK (éxito con datos) · 201 Created (recurso creado por POST) · 204 No Content (éxito sin cuerpo).\n- 400 Bad Request · 401 Unauthorized (falta autenticación) · 403 Forbidden (sin permisos) · 404 Not Found."
-            ],
-            "key": "Clave examen: 401 = no identificado; 403 = identificado pero sin permisos. PUT y DELETE son idempotentes."
-        },
-        {
-            "tema": 4,
-            "category": "OpenAPI / Swagger",
-            "title": "Swagger vs OpenAPI 3.0",
-            "bullets": [
-                "Historia: Creado por Tony Tam (2010); en 2015 SmartBear dona la especificación a Linux Foundation como OpenAPI Specification (OAS). Swagger ahora son las herramientas (Editor, UI, Codegen).",
-                "RAML: Lenguaje de modelado en YAML promovido por MuleSoft.",
-                "Cabecera raíz: 'swagger: \"2.0\"' frente a 'openapi: \"3.0.0\"'.",
-                "Servidores: 'host', 'basePath' y 'schemes' se unificaron en el array 'servers: [{url: \"...\"}]' (múltiples entornos).",
-                "Cuerpo de petición: 'in: body' se sustituye por 'requestBody' con selector de tipos MIME ('application/json', 'multipart/form-data').",
-                "Ubicación de parámetros en 3.0: path (con required: true obligatorio), query, header y cookie.",
-                "Componentes: 'definitions' se sustituyó por 'components' (components.schemas, components.responses, components.securitySchemes)."
-            ],
-            "key": "Referencia JSON Pointer: $ref: '#/components/schemas/NombreEsquema'."
+            "key": "Clúster: N = i^2+ij+j^2. Distancia cocanal: D/R = sqrt(3N). Hard = break before make. Soft = make before break."
         }
     ]
-
-if __name__ == '__main__':
-    cards = get_flashcards()
-    print(f"Total flashcards generated: {len(cards)}")

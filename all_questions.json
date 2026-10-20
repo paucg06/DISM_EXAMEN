@@ -57,20 +57,6 @@
   },
   {
     "tema": 1,
-    "subtema": "Ecosistema Móvil",
-    "q": "¿Cuál de los siguientes es un problema característico de la plataforma Android en comparación con iOS?",
-    "options": [
-      "La fragmentación de dispositivos, pantallas y versiones del sistema operativo activas",
-      "La imposibilidad de programar en lenguajes orientados a objetos",
-      "La falta de acceso a hardware como GPS o cámara",
-      "Que solo existe un único fabricante de teléfonos en el mundo"
-    ],
-    "correct": 0,
-    "explanation": "La fragmentación (múltiples fabricantes, miles de tamaños y resoluciones de pantalla, y versiones heterogéneas de Android activas simultáneamente) es un reto clásico en Android frente al catálogo cerrado y homogéneo de Apple.",
-    "id": "t1_005"
-  },
-  {
-    "tema": 1,
     "subtema": "Enfoques de Desarrollo",
     "q": "¿Qué caracteriza fundamentalmente a una aplicación híbrida?",
     "options": [
@@ -198,34 +184,6 @@
   {
     "tema": 1,
     "subtema": "Ionic Framework",
-    "q": "¿Qué comando de la CLI de Capacitor sincroniza los activos web compilados y actualiza los plugins nativos en las carpetas nativas?",
-    "options": [
-      "npx cap sync",
-      "npx cap destroy",
-      "npm run delete-native",
-      "ionic format"
-    ],
-    "correct": 0,
-    "explanation": "`npx cap sync` ejecuta `copy` (copia la carpeta de build web a las carpetas nativas) y `update` (actualiza los plugins y dependencias nativas en Gradle y CocoaPods).",
-    "id": "t1_015"
-  },
-  {
-    "tema": 1,
-    "subtema": "Ionic Framework",
-    "q": "¿Qué librería / tecnología utiliza el equipo de Ionic bajo el capó para construir sus componentes web (Web Components) estándares y reutilizables en cualquier framework?",
-    "options": [
-      "Stencil.js",
-      "jQuery",
-      "Flash",
-      "Bootstrap 3"
-    ],
-    "correct": 0,
-    "explanation": "Ionic creó Stencil.js, un compilador que genera Web Components estándar altamente optimizados, permitiendo que la misma biblioteca de componentes funcione con Angular, React, Vue o JS puro.",
-    "id": "t1_016"
-  },
-  {
-    "tema": 1,
-    "subtema": "Ionic Framework",
     "q": "¿Cómo adapta Ionic automáticamente la apariencia visual de sus componentes según el sistema operativo en el que se ejecuta?",
     "options": [
       "Modo de estilo automático: aplica Material Design ('md') en Android y estilo Cupertino ('ios') en dispositivos Apple",
@@ -278,90 +236,6 @@
     "correct": 0,
     "explanation": "Una PWA es una solución web que incorpora características de app nativa como trabajo sin conexión, instalación en el launcher y notificaciones.",
     "id": "t1_020"
-  },
-  {
-    "tema": 1,
-    "subtema": "PWA",
-    "q": "¿Cuál es el archivo JSON que proporciona metadatos de la PWA (nombre, tema, orientación, iconos, modo de inicio) al navegador?",
-    "options": [
-      "Web App Manifest (manifest.json)",
-      "package.json",
-      "settings.gradle",
-      "Info.plist"
-    ],
-    "correct": 0,
-    "explanation": "El Web App Manifest (`manifest.json` o `manifest.webmanifest`) contiene la configuración necesaria para que el navegador sepa cómo instalar y mostrar la aplicación.",
-    "id": "t1_021"
-  },
-  {
-    "tema": 1,
-    "subtema": "PWA",
-    "q": "¿Qué componente es el corazón de una PWA que se ejecuta en segundo plano en un hilo separado del DOM e intercepta las peticiones de red?",
-    "options": [
-      "El Service Worker",
-      "El Kernel de Linux",
-      "La base de datos MySQL",
-      "El compilador JIT"
-    ],
-    "correct": 0,
-    "explanation": "El Service Worker es un script en segundo plano que actúa como proxy entre la aplicación web, el navegador y la red, interceptando llamadas HTTP.",
-    "id": "t1_022"
-  },
-  {
-    "tema": 1,
-    "subtema": "PWA",
-    "q": "¿Qué requisito de seguridad fundamental exige el navegador para permitir el registro de un Service Worker (excepto en localhost)?",
-    "options": [
-      "Que el sitio web se sirva obligatoriamente bajo el protocolo seguro HTTPS",
-      "Que el usuario ingrese su contraseña de administrador del teléfono",
-      "Que la página web no contenga ninguna imagen",
-      "Que el servidor esté alojado físicamente en el mismo país del usuario"
-    ],
-    "correct": 0,
-    "explanation": "Por razones de seguridad contra ataques Man-In-The-Middle, los Service Workers solo se pueden registrar y ejecutar en orígenes seguros mediante HTTPS (o localhost durante el desarrollo).",
-    "id": "t1_023"
-  },
-  {
-    "tema": 1,
-    "subtema": "PWA",
-    "q": "¿En qué orden se suceden las fases iniciales del ciclo de vida de un Service Worker?",
-    "options": [
-      "Descarga -> Install -> Activate -> Idle / Fetch",
-      "Execute -> Compile -> Delete -> Close",
-      "Activate -> Install -> Recompile -> Terminate",
-      "Fetch -> Install -> Sleep -> Shutdown"
-    ],
-    "correct": 0,
-    "explanation": "Tras descargarse el script, entra en la fase `Install` (donde típicamente se cachea la App Shell), pasa a `Activate` (limpieza de cachés viejas) y finalmente queda escuchando eventos funcionales como `fetch` o `push`.",
-    "id": "t1_024"
-  },
-  {
-    "tema": 1,
-    "subtema": "PWA",
-    "q": "En el evento 'install' de un Service Worker, ¿qué método de evento se suele utilizar para evitar que el navegador dé por finalizada la instalación antes de que se complete el cacheado?",
-    "options": [
-      "event.waitUntil()",
-      "event.stopImmediate()",
-      "event.terminate()",
-      "event.preventDefault()"
-    ],
-    "correct": 0,
-    "explanation": "`event.waitUntil(promise)` extiende la vida del evento de instalación hasta que la promesa que cachea los archivos iniciales se resuelva con éxito.",
-    "id": "t1_025"
-  },
-  {
-    "tema": 1,
-    "subtema": "PWA",
-    "q": "En el ciclo de un Service Worker, ¿cuándo toma el control de las páginas abiertas si no se usa 'self.clients.claim()'?",
-    "options": [
-      "Inmediatamente al empezar a descargar el script",
-      "Solo después de que la página actual se cierre y se vuelva a abrir (o se recargue)",
-      "Nunca; requiere reiniciar físicamente el terminal",
-      "A las 24 horas exactas de la instalación"
-    ],
-    "correct": 1,
-    "explanation": "Por defecto, un nuevo Service Worker no controlará los clientes hasta la siguiente navegación/recarga, a menos que se llame explícitamente a `self.clients.claim()` en el evento `activate`.",
-    "id": "t1_026"
   },
   {
     "tema": 1,
@@ -576,20 +450,6 @@
   {
     "tema": 1,
     "subtema": "React Native",
-    "q": "¿Qué motor de layout multiplataforma, implementado en C++ y basado en Flexbox, utiliza React Native para calcular el tamaño y posición de las vistas?",
-    "options": [
-      "Yoga",
-      "Skia",
-      "DirectX",
-      "Cairo"
-    ],
-    "correct": 0,
-    "explanation": "Yoga es la implementación en C++ de Flexbox creada por Meta para calcular el layout en React Native independientemente del sistema operativo.",
-    "id": "t1_042"
-  },
-  {
-    "tema": 1,
-    "subtema": "React Native",
     "q": "¿Qué motor de JavaScript ligero, optimizado para móviles y con compilación anticipada de bytecode, utiliza React Native por defecto?",
     "options": [
       "Hermes",
@@ -600,20 +460,6 @@
     "correct": 0,
     "explanation": "Hermes es el motor de JavaScript desarrollado por Meta y optimizado para reducir el tiempo de inicio (TTI), uso de memoria y tamaño del APK en React Native.",
     "id": "t1_043"
-  },
-  {
-    "tema": 1,
-    "subtema": "React Native",
-    "q": "¿Cómo se denominan las dos piezas centrales de la 'Nueva Arquitectura' de React Native para el renderizado concurrente y los módulos nativos directos?",
-    "options": [
-      "Fabric (nuevo sistema de renderizado) y TurboModules (nuevo sistema de módulos nativos sobre JSI)",
-      "WebView y Apache Cordova",
-      "Mono Runtime y CocoaTouch",
-      "Activity y Fragment"
-    ],
-    "correct": 0,
-    "explanation": "Fabric es el motor de renderizado de la nueva arquitectura de React Native y TurboModules permite la carga bajo demanda y comunicación directa síncrona con código nativo mediante JSI.",
-    "id": "t1_044"
   },
   {
     "tema": 1,
@@ -656,48 +502,6 @@
     "correct": 0,
     "explanation": "Compose Multiplatform permite utilizar la sintaxis declarativa de Jetpack Compose no solo en Android, sino también en iOS, escritorio y web.",
     "id": "t1_047"
-  },
-  {
-    "tema": 1,
-    "subtema": "Tauri",
-    "q": "¿Cuál es la principal ventaja de Tauri en comparación con Electron?",
-    "options": [
-      "Tauri NO empaqueta una copia completa del navegador Chromium ni de Node.js; utiliza el WebView nativo del sistema operativo y un backend seguro en Rust, resultando en aplicaciones mucho más ligeras y rápidas",
-      "Tauri solo funciona si el usuario no tiene conexión a internet",
-      "Tauri traduce el código a lenguaje Pascal",
-      "Tauri no admite hojas de estilo CSS"
-    ],
-    "correct": 0,
-    "explanation": "Electron genera instaladores pesados (>100-200 MB) porque incluye Chromium y Node.js. Tauri utiliza Rust y el WebView ya presente en el SO (WebView2 en Windows, WebKit en macOS/iOS, WebKitGTK en Linux), logrando instaladores diminutos (<5-10 MB).",
-    "id": "t1_048"
-  },
-  {
-    "tema": 1,
-    "subtema": "Tauri",
-    "q": "¿Cómo se comunican el frontend web y el backend en Rust dentro de una aplicación Tauri?",
-    "options": [
-      "Mediante un sistema IPC seguro que invoca comandos de Rust definidos con la macro #[tauri::command] a través de window.__TAURI__.core.invoke()",
-      "Enviando correos electrónicos automáticos a localhost",
-      "Escribiendo en cintas magnéticas virtuales",
-      "Mediante llamadas HTTP a servidores públicos en internet exclusivamente"
-    ],
-    "correct": 0,
-    "explanation": "El frontend invoca funciones en Rust de forma asíncrona mediante el comando `invoke('nombre_del_comando', { argumentos })` a través del canal IPC interno y seguro de Tauri.",
-    "id": "t1_049"
-  },
-  {
-    "tema": 1,
-    "subtema": "Comparativa de Frameworks",
-    "q": "¿Qué lenguaje de programación utiliza cada uno de los siguientes frameworks: Flutter, React Native, .NET MAUI y Tauri?",
-    "options": [
-      "Flutter: Dart | React Native: JS/TS | .NET MAUI: C# | Tauri: Rust (backend) + Web (frontend)",
-      "Flutter: Kotlin | React Native: Swift | .NET MAUI: Java | Tauri: C++",
-      "Flutter: Python | React Native: PHP | .NET MAUI: Ruby | Tauri: Go",
-      "Flutter: C# | React Native: Dart | .NET MAUI: JS | Tauri: Java"
-    ],
-    "correct": 0,
-    "explanation": "Esa es la correspondencia exacta de lenguajes de cada tecnología según el temario.",
-    "id": "t1_050"
   },
   {
     "tema": 1,
@@ -744,20 +548,6 @@
   {
     "tema": 1,
     "subtema": "Comparativa de Frameworks",
-    "q": "¿Qué framework multiplataforma utiliza un motor propio que NO emplea los widgets de Android ni iOS, asegurando consistencia total en el diseño en cualquier dispositivo?",
-    "options": [
-      "Flutter",
-      "React Native",
-      ".NET MAUI",
-      "Tauri"
-    ],
-    "correct": 0,
-    "explanation": "Flutter dibuja directamente en la pantalla con su motor gráfico (Skia/Impeller), manteniendo la misma apariencia independientemente del fabricante o versión de SO.",
-    "id": "t1_054"
-  },
-  {
-    "tema": 1,
-    "subtema": "Comparativa de Frameworks",
     "q": "¿Qué ocurre si una aplicación híbrida en Ionic necesita acceder a una función hardware específica que no está incluida en los plugins oficiales de Capacitor?",
     "options": [
       "Es imposible acceder; hay que reescribir la aplicación en otro lenguaje",
@@ -782,20 +572,6 @@
     "correct": 0,
     "explanation": "Android Studio incluye el Emulador de Android con aceleración de hardware (HAXM/Hypervisor), mientras que Xcode incluye el Simulador de iOS.",
     "id": "t1_056"
-  },
-  {
-    "tema": 1,
-    "subtema": "Publicación",
-    "q": "¿Qué formato de paquete de distribución introdujo Google en sustitución del tradicional archivo .apk para reducir el tamaño de las descargas en Google Play?",
-    "options": [
-      "Android App Bundle (.aab)",
-      ".ipa",
-      ".dmg",
-      ".tar.gz"
-    ],
-    "correct": 0,
-    "explanation": "Android App Bundle (.aab) es el formato obligatorio en Google Play que permite a Google generar APKs optimizados y reducidos para la arquitectura específica de cada dispositivo.",
-    "id": "t1_057"
   },
   {
     "tema": 1,
@@ -840,124 +616,144 @@
     "id": "t1_060"
   },
   {
-    "tema": 2,
-    "source": "test_dam_tema2.html",
-    "q": "¿Qué es 'multimedia' según el tema?",
+    "id": "t1_fw_01",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "¿Cuál de los siguientes frameworks se clasifica como una aplicación HÍBRIDA debido a que requiere un WebView o contenedor web para ejecutarse?",
     "options": [
-      "Un lenguaje de programación para crear webs",
-      "El campo que estudia la integración de diferentes medios en ordenadores",
-      "Un protocolo de red para vídeo",
-      "Un tipo de formato de compresión"
+      "React Native",
+      "Apache Cordova / Ionic",
+      ".NET MAUI",
+      "NativeScript"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: 'El campo que estudia la integración de diferentes medios en ordenadores'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 2",
-    "id": "t2_001"
+    "explanation": "Ionic y Apache Cordova son aplicaciones híbridas: se desarrollan con tecnologías web (HTML, CSS y JS) y se ejecutan dentro de un contenedor o WebView en el dispositivo móvil."
   },
   {
-    "tema": 2,
-    "source": "test_dam_tema2.html",
-    "q": "¿Qué medios incluye principalmente el multimedia?",
+    "id": "t1_fw_02",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "¿Cuál de los siguientes frameworks se clasifica como NATIVO porque compila sus componentes y se ejecuta directamente sobre el sistema operativo sin usar un WebView?",
     "options": [
-      "Solo texto e imágenes",
-      "Únicamente vídeo",
-      "Medios visuales y auditivos (texto, imagen, audio, vídeo)",
-      "Solo audio"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'Medios visuales y auditivos (texto, imagen, audio, vídeo)'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 2",
-    "id": "t2_002"
-  },
-  {
-    "tema": 2,
-    "source": "test_dam_tema2.html",
-    "q": "¿Qué es un Sistema Multimedia (SM)?",
-    "options": [
-      "Un formato de archivo de vídeo",
-      "Un dispositivo de almacenamiento externo",
-      "Aquel capaz de procesar tanto aplicaciones como datos multimedia",
-      "Un protocolo de streaming"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'Aquel capaz de procesar tanto aplicaciones como datos multimedia'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 2",
-    "id": "t2_003"
-  },
-  {
-    "tema": 2,
-    "source": "test_dam_tema2.html",
-    "q": "En la clasificación multimedia, ¿qué tipo describe al cine, donde el usuario no controla el contenido?",
-    "options": [
-      "Hipermedia",
-      "Hipermedia interactiva",
-      "Multimedia lineal",
-      "Vídeo bajo demanda"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'Multimedia lineal'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 2",
-    "id": "t2_004"
-  },
-  {
-    "tema": 2,
-    "source": "test_dam_tema2.html",
-    "q": "¿Qué tipo de multimedia da al usuario control mediante un sistema de navegación, con ejemplo en HTML?",
-    "options": [
-      "Multimedia lineal",
-      "Hipermedia",
-      "Multimedia estática",
-      "Streaming en directo"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Hipermedia'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 2",
-    "id": "t2_005"
-  },
-  {
-    "tema": 2,
-    "source": "test_dam_tema2.html",
-    "q": "¿Qué tipo de multimedia permite al usuario controlar elementos como la secuencia o la velocidad de la presentación?",
-    "options": [
-      "Multimedia lineal",
-      "OTT",
-      "Hipermedia interactiva",
-      "SVOD"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'Hipermedia interactiva'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 2",
-    "id": "t2_006"
-  },
-  {
-    "tema": 2,
-    "source": "test_dam_tema2.html",
-    "q": "¿Cuál es la primera etapa de un proyecto multimedia?",
-    "options": [
-      "Diseño y producción",
-      "Distribución",
-      "Pruebas de calidad y satisfacción",
-      "Planificación y evaluación de costes"
+      "Ionic",
+      "Apache Cordova",
+      "PhoneGap",
+      "React Native"
     ],
     "correct": 3,
-    "explanation": "Respuesta correcta: 'Planificación y evaluación de costes'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 2",
-    "id": "t2_007"
+    "explanation": "React Native es nativo: aunque el desarrollador escribe en JavaScript/JSX, la interfaz se renderiza utilizando los widgets nativos del sistema operativo móvil (sin WebView)."
   },
   {
-    "tema": 2,
-    "source": "test_dam_tema2.html",
-    "q": "¿Cuál de las siguientes es una característica deseable de un Sistema Multimedia?",
+    "id": "t1_fw_03",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "Según la clasificación del temario oficial, ¿cómo se catalogan Unity y Apache Cordova?",
     "options": [
-      "Baja capacidad de procesamiento",
-      "Sistema de ficheros preparado para multimedia",
-      "Ausencia total de compresión",
-      "Entrada/salida de datos lenta"
+      "Ambas se catalogan como Híbridas porque requieren una capa adicional (contenedor o navegador) para ejecutarse",
+      "Ambas se catalogan como Nativas porque se distribuyen a través de las tiendas oficiales de apps",
+      "Unity es Nativa y Apache Cordova es Progresiva (PWA)",
+      "Ninguna de las anteriores es correcta"
+    ],
+    "correct": 0,
+    "explanation": "En el temario de DISM se establece textualmente: si requieren una capa adicional para ejecutarse como un navegador o un contenedor, son híbridas (Apache Cordova, Ionic, Unity)."
+  },
+  {
+    "id": "t1_fw_04",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "¿A qué categoría corresponde el framework Xamarin / .NET MAUI según el temario?",
+    "options": [
+      "Aplicación Web / PWA",
+      "Aplicación Híbrida ejecutada en WebView",
+      "Aplicación Nativa (se compila y ejecuta directamente en el SO aprovechando controles nativos)",
+      "Aplicación Emulada por script de servidor"
+    ],
+    "correct": 2,
+    "explanation": "Xamarin y su sucesor .NET MAUI son clasificados como frameworks nativos: permiten escribir en C# y compilan código que se ejecuta directamente sobre el SO utilizando la UI nativa de cada plataforma."
+  },
+  {
+    "id": "t1_fw_05",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "¿Qué caracteriza a Flutter en la clasificación del desarrollo multiplataforma?",
+    "options": [
+      "Es una aplicación híbrida porque encapsula HTML y CSS dentro de una ventana de navegador",
+      "Es un framework que genera aplicaciones nativas dibujando su propia interfaz píxel a píxel mediante un motor gráfico en un lienzo nativo",
+      "Es una aplicación web que requiere conexión permanente a un servidor remoto",
+      "Es un framework exclusivamente interpretado en JavaScript sin acceso a aceleración gráfica"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: 'Sistema de ficheros preparado para multimedia'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 2",
-    "id": "t2_008"
+    "explanation": "Flutter no utiliza WebViews ni tampoco widgets nativos del SO: dibuja su propia interfaz mediante su motor gráfico directamente en un canvas nativo, ofreciendo rendimiento nativo a 60/120 fps."
+  },
+  {
+    "id": "t1_fw_06",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "¿Cuál es la principal ventaja de rendimiento de una aplicación nativa frente a una híbrida basada en WebView?",
+    "options": [
+      "La app nativa consume mucho más almacenamiento pero no usa memoria RAM",
+      "La app nativa trabaja directamente con el hardware y la GPU del dispositivo sin la sobrecarga de capas de abstracción del navegador web",
+      "La app híbrida siempre es más rápida porque HTML y CSS son lenguajes de bajo nivel",
+      "No existe ninguna diferencia medible de rendimiento entre nativo e híbrido"
+    ],
+    "correct": 1,
+    "explanation": "El rendimiento de las aplicaciones nativas es superior porque interactúan directamente con el procesador, la memoria y las APIs del SO sin requerir el motor del navegador (WebView) ni bridges de traducción."
+  },
+  {
+    "id": "t1_fw_07",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "Si un framework requiere plugins intermedios para acceder a la cámara, el acelerómetro o el GPS debido a que la lógica corre en un navegador interno, se trata de:",
+    "options": [
+      "Un desarrollo Nativo puro",
+      "Una Aplicación Híbrida (como Ionic o Apache Cordova)",
+      "Un microcontrolador embebido",
+      "Una máquina virtual Java independiente del hardware"
+    ],
+    "correct": 1,
+    "explanation": "En las aplicaciones híbridas la webview no tiene acceso directo al hardware del móvil, por lo que depende de plugins o bridges (como Capacitor o Cordova Plugins) para acceder a periféricos nativos."
+  },
+  {
+    "id": "t1_fw_08",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "¿Cuál de los siguientes frameworks NO es híbrido (es decir, NO ejecuta la interfaz dentro de un WebView)?",
+    "options": [
+      "Apache Cordova",
+      "PhoneGap",
+      "Ionic",
+      "NativeScript"
+    ],
+    "correct": 3,
+    "explanation": "NativeScript es nativo: accede directamente a las APIs y controles nativos de Android e iOS en tiempo real sin utilizar ningún WebView."
+  },
+  {
+    "id": "t1_fw_09",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "En el desarrollo multiplataforma, ¿qué tecnología promueve JetBrains para compartir lógica de negocio en lenguaje Kotlin compilando a nativo en iOS y bytecode en Android?",
+    "options": [
+      "Kotlin Multiplatform (KMP)",
+      "Apache Cordova",
+      "Sencha Touch",
+      "Ionic Stencil"
+    ],
+    "correct": 0,
+    "explanation": "Kotlin Multiplatform (KMP) permite compartir código en Kotlin compilando a binario nativo en iOS (mediante Kotlin/Native) y ejecutándose nativamente en la JVM de Android."
+  },
+  {
+    "id": "t1_fw_10",
+    "tema": 1,
+    "subtema": "Clasificación de Frameworks",
+    "q": "¿Cuál es la principal ventaja empresarial de optar por un desarrollo híbrido (Ionic/Cordova) frente a dos desarrollos nativos independientes?",
+    "options": [
+      "Rendimiento gráfico 3D superior al nativo",
+      "Menor coste y menor tiempo de desarrollo (Time-to-Market), al usar una sola base de código web para todas las plataformas",
+      "Acceso directo sin permisos al kernel del sistema operativo",
+      "Elimina la necesidad de disponer de un ordenador Mac para compilar en iOS"
+    ],
+    "correct": 1,
+    "explanation": "El desarrollo híbrido reduce costes y tiempo porque un solo equipo con competencias web (HTML/CSS/JS) puede construir la aplicación para Android e iOS a partir de una única base de código."
   },
   {
     "tema": 2,
@@ -2004,6 +1800,76 @@
     "correct": 0,
     "explanation": "Las NPUs (como el Apple Neural Engine o las Tensor/Hexagon NPUs) están optimizadas en hardware para la inferencia ultrarrápida y de muy bajo consumo de modelos de inteligencia artificial en el propio dispositivo (on-device AI).",
     "id": "t2_079"
+  },
+  {
+    "id": "t2_comp_01",
+    "tema": 2,
+    "subtema": "Compresión de Datos",
+    "q": "EJERCICIO DE COMPRESIÓN: Una cadena de texto sin comprimir ocupa 100 KB. Tras aplicar un algoritmo de compresión, su tamaño final es de 25 KB. ¿Cuál es la tasa o factor de compresión (Compression Ratio)?",
+    "options": [
+      "2:1 (factor 2)",
+      "4:1 (factor 4, o reducción del 75%)",
+      "10:1 (factor 10)",
+      "0.25:1"
+    ],
+    "correct": 1,
+    "explanation": "El factor de compresión es Ratio = Tamaño Original / Tamaño Comprimido = 100 KB / 25 KB = 4:1 (factor 4). El porcentaje de reducción de espacio es ((100-25)/100)*100 = 75%."
+  },
+  {
+    "id": "t2_comp_02",
+    "tema": 2,
+    "subtema": "Compresión de Datos",
+    "q": "EJERCICIO DE COMPRESIÓN (RLE - Run-Length Encoding): Al aplicar el algoritmo RLE a la secuencia de píxeles 'AAAAABBBCCCCCD', ¿cuál es la secuencia codificada resultante?",
+    "options": [
+      "5A3B5C1D",
+      "A5B3C5D1",
+      "14ABCD",
+      "AABBCCDD"
+    ],
+    "correct": 0,
+    "explanation": "La codificación RLE sustituye secuencias consecutivas repetidas por el recuento seguido del valor: 5 veces 'A' (5A), 3 veces 'B' (3B), 5 veces 'C' (5C) y 1 vez 'D' (1D) -> 5A3B5C1D."
+  },
+  {
+    "id": "t2_comp_03",
+    "tema": 2,
+    "subtema": "Compresión de Datos",
+    "q": "¿Cuál es la diferencia fundamental entre una compresión con pérdida (lossy) y una compresión sin pérdida (lossless)?",
+    "options": [
+      "Lossless destruye información visual imperceptible y lossy recupera el 100% de los datos originales",
+      "Lossless permite reconstruir exactamente los datos originales bit a bit (ej. PNG, FLAC, ZIP), mientras que lossy descarta datos imperceptibles para lograr mayor compresión (ej. JPEG, MP3)",
+      "Lossy solo se utiliza para texto y Lossless para vídeo",
+      "No hay diferencia, son dos nombres para el mismo algoritmo"
+    ],
+    "correct": 1,
+    "explanation": "La compresión sin pérdida (lossless) es completamente reversible y exacta bit a bit. La compresión con pérdida (lossy) elimina redundancia psicovisual o psicoacústica para obtener archivos mucho menores a costa de perder fidelidad imperceptible."
+  },
+  {
+    "id": "t2_stream_01",
+    "tema": 2,
+    "subtema": "Arquitectura de Streaming",
+    "q": "¿Cuál es la función del servidor Proxy de Streaming en la arquitectura multimedia?",
+    "options": [
+      "Codificar en tiempo real el audio analógico a MP3",
+      "Servir de intermediario que almacena en caché los segmentos solicitados, reduciendo el tráfico de salida del servidor principal y la latencia para los clientes",
+      "Sustituir a los discos duros RAID dentro de la matriz de almacenamiento",
+      "Calcular la paridad XOR en las tramas de red"
+    ],
+    "correct": 1,
+    "explanation": "El Proxy de Streaming se coloca entre el cliente y el servidor: reutiliza y distribuye flujos almacenando segmentos temporales, lo que descongestiona el servidor central y acerca los datos al usuario."
+  },
+  {
+    "id": "t2_stream_02",
+    "tema": 2,
+    "subtema": "Arquitectura de Streaming",
+    "q": "¿Qué protocolo de streaming trabaja a nivel de transporte sobre UDP y añade marcas de tiempo (timestamp) y números de secuencia para permitir la reconstrucción en tiempo real de flujos de audio y vídeo?",
+    "options": [
+      "TCP puro",
+      "RTP (Real-time Transport Protocol)",
+      "FTP",
+      "SMTP"
+    ],
+    "correct": 1,
+    "explanation": "RTP corre típicamente sobre UDP para minimizar el retraso; incluye timestamps y números de secuencia para que el cliente ordene los paquetes y detecte pérdidas o jitter."
   },
   {
     "tema": 3,
@@ -4224,869 +4090,157 @@
     "id": "t3_150"
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Dónde se desarrolló inicialmente el concepto de Internet of Things?",
+    "id": "t3_disp_01",
+    "tema": 3,
+    "subtema": "Displays y Pantallas",
+    "q": "¿Por qué un display OLED / AMOLED logra un 'contraste infinito' y negros puros a diferencia de una pantalla LCD?",
     "options": [
-      "En Stanford",
-      "En el MIT",
-      "En Bell Labs",
-      "En el CERN"
+      "Porque utiliza lámparas fluorescentes con luz negra en el panel trasero",
+      "Porque cada píxel orgánico es autoemisor de luz y para mostrar el color negro el píxel se apaga completamente (0 lúmenes emitidos)",
+      "Porque duplica el número de transistores TFT por cada subpíxel",
+      "Porque bloquea la luz mediante una capa de cuarzo reflectante"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: 'En el MIT'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_001"
+    "explanation": "En las pantallas OLED/AMOLED no hay retroiluminación común trasera (backlight): cada píxel genera su propia luz y se apaga por completo al representar negro, logrando negros absolutos y contraste infinito."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuál de los siguientes NO es un obstáculo mencionado para la expansión del IoT?",
+    "id": "t3_disp_02",
+    "tema": 3,
+    "subtema": "Displays y Pantallas",
+    "q": "En pantallas táctiles, ¿qué tecnología es mecánicamente flexible, funciona por presión física de dos láminas conductoras y permite operar con guantes o cualquier puntero rígido?",
     "options": [
-      "La transición de IPv4 a IPv6",
-      "El desarrollo de fuentes de energía",
-      "Establecer estándares comunes entre dispositivos",
-      "La falta de interés comercial"
-    ],
-    "correct": 3,
-    "explanation": "Respuesta correcta: 'La falta de interés comercial'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_002"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué tipo de sistema operativo usa cada dispositivo IoT?",
-    "options": [
-      "Uno embebido específico de bajo consumo",
-      "Un sistema operativo de propósito general",
-      "Uno basado en la nube exclusivamente",
-      "No requieren sistema operativo"
-    ],
-    "correct": 0,
-    "explanation": "Respuesta correcta: 'Uno embebido específico de bajo consumo'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_003"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuál es el recorrido típico de la información en la arquitectura IoT?",
-    "options": [
-      "Nube → Redes → Dispositivos",
-      "Redes → Dispositivos → Nube",
-      "Dispositivos → Redes → Nube",
-      "Dispositivos → Nube → Redes"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'Dispositivos → Redes → Nube'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_004"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿A partir de qué volumen de datos se suele considerar Big Data?",
-    "options": [
-      "Gigabytes",
-      "Terabytes",
-      "Petabytes o exabytes",
-      "Kilobytes"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'Petabytes o exabytes'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_005"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuántos bytes equivale aproximadamente un Petabyte?",
-    "options": [
-      "10^9",
-      "10^12",
-      "10^15",
-      "10^18"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: '10^15'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_006"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "Según el documento, ¿de dónde proviene actualmente la mayor parte del Big Data?",
-    "options": [
-      "De sensores industriales",
-      "De las redes sociales",
-      "De satélites meteorológicos",
-      "De registros médicos"
+      "Pantalla capacitiva proyectada (PCAP)",
+      "Pantalla táctil resistiva",
+      "Pantalla capacitiva de superficie",
+      "Pantalla acústica SAW"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: 'De las redes sociales'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_007"
+    "explanation": "La pantalla táctil resistiva funciona por presión física: al presionar la lámina superior flexible, esta entra en contacto con la lámina inferior conductora cerrando el circuito. Por ello funciona con guantes, stylus pasivos o cualquier objeto."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuántos bytes generan aproximadamente las posiciones geográficas según el texto?",
+    "id": "t3_disp_03",
+    "tema": 3,
+    "subtema": "Displays y Pantallas",
+    "q": "¿Qué ventaja técnica ofrece la tecnología In-Cell frente a las pantallas táctiles tradicionales o On-Cell?",
     "options": [
-      "2.5 millones",
-      "2.5 mil millones",
-      "2.5 trillones",
-      "2.5 quintillones"
-    ],
-    "correct": 3,
-    "explanation": "Respuesta correcta: '2.5 quintillones'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_008"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué tipo de dato de Big Data corresponde a huellas digitales o reconocimiento facial?",
-    "options": [
-      "Machine to Machine",
-      "Biométricos",
-      "Big Transaction Data",
-      "Generados por humanos"
+      "Requiere mayor grosor pero resiste caídas de 10 metros",
+      "Integra los electrodos y sensores táctiles dentro de la propia matriz LCD/OLED, reduciendo el grosor, el peso y los reflejos de luz",
+      "Añade dos capas de cristal protector adicionales en el exterior",
+      "Funciona exclusivamente con tecnología de infrarrojos"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: 'Biométricos'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_009"
+    "explanation": "La tecnología In-Cell integra la capa táctil directamente dentro de la celda de la pantalla (eliminando capas intermedias de cristal y adhesivo), lo que hace que los paneles sean mucho más delgados, ligeros y con mayor calidad óptica."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué tipo de dato de Big Data corresponde a RFID o GPS?",
+    "id": "t3_disp_04",
+    "tema": 3,
+    "subtema": "Displays y Pantallas",
+    "q": "¿Qué tecnología táctil utiliza transductores ultrasónicos en los bordes de un cristal puro y se caracteriza por una claridad óptica máxima del 100%, pero es sensible a gotas de agua y suciedad?",
     "options": [
-      "Machine to Machine",
-      "Web y Redes Sociales",
-      "Biométricos",
-      "Generados por humanos"
+      "Pantalla SAW (Surface Acoustic Wave / Onda Acústica Superficial)",
+      "Pantalla Resistiva analógica",
+      "Pantalla PCAP",
+      "Malla de infrarrojos perimetral"
     ],
     "correct": 0,
-    "explanation": "Respuesta correcta: 'Machine to Machine'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_010"
+    "explanation": "Las pantallas SAW envían ondas acústicas ultrasónicas por la superficie del cristal. Al tocar con el dedo, se absorbe parte de la onda. Ofrecen máxima transparencia (cristal puro sin capas conductoras), pero el polvo o líquidos alteran la onda acústica."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿En qué se basa el paradigma Message Oriented Middleware (MOM)?",
+    "id": "t3_wear_01",
+    "tema": 3,
+    "subtema": "Wearables y Textillography",
+    "q": "¿Qué es la 'Textillography' en el contexto de los dispositivos wearables?",
     "options": [
-      "Llamadas RPC síncronas",
-      "El paso de mensajes asíncronos",
-      "Consultas SQL directas",
-      "Transferencia de ficheros FTP"
+      "Un método de impresión textil con tinta tradicional para camisetas de publicidad",
+      "La ciencia y tecnología que integra componentes electrónicos, sensores y materiales conductores dentro de la propia estructura del tejido y las prendas inteligentes",
+      "Un estándar de codificación de compresión de imágenes de ropa en 4K",
+      "Un protocolo inalámbrico de bajo consumo para lavadoras inteligentes"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: 'El paso de mensajes asíncronos'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_011"
+    "explanation": "Textillography (textiles inteligentes / e-textiles) es el campo transdisciplinar que estudia la integración de electrónica, interconexiones, sensores biométricos y fibras conductoras en los propios tejidos textiles."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuáles son los dos tipos de comunicación en MOM?",
+    "id": "t3_wear_02",
+    "tema": 3,
+    "subtema": "Wearables y Textillography",
+    "q": "¿Cuáles son dos de los principales desafíos técnicos a los que se enfrenta la tecnología de Textillography y la ropa inteligente?",
     "options": [
-      "Cliente-servidor y P2P",
-      "Punto a punto y Publicación-Suscripción",
-      "Síncrono y asíncrono",
-      "Broker y bus"
+      "La falta de pantallas en color y la velocidad de la memoria RAM",
+      "La resistencia y degradación ante los ciclos de lavado / torsión mecánica, y la gestión de la alimentación energética / baterías",
+      "La incompatibilidad con el protocolo HTTP y la falta de cobertura 5G",
+      "El coste excesivo del algodón tradicional"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: 'Punto a punto y Publicación-Suscripción'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_012"
+    "explanation": "Los grandes retos de las prendas inteligentes (Textillography) son la durabilidad frente a lavados agresivos (humedad, detergentes, centrifugado), la flexibilidad/fatiga mecánica y el suministro continuo de energía con baterías lavables o recolección de energía (energy harvesting)."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué empresa creó originalmente MQTT?",
+    "id": "t3_con_01",
+    "tema": 3,
+    "subtema": "Conectividad",
+    "q": "¿Cuál es la diferencia fundamental entre Bluetooth BLE (Bluetooth Low Energy) y Wi-Fi en cuanto a consumo de energía y caudal de datos?",
     "options": [
-      "Google",
-      "Microsoft",
-      "IBM",
-      "Amazon"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'IBM'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_013"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿En qué se basa la arquitectura de MQTT?",
-    "options": [
-      "Punto a punto directo",
-      "Publicación-suscripción en estrella con un broker",
-      "Bus de servicios distribuido",
-      "Llamadas RPC entre sensores"
+      "Wi-Fi consume mucho menos que BLE y tiene menor caudal",
+      "BLE está optimizado para transmitir pequeños paquetes de datos con consumo ultra bajo permitiendo años de autonomía con una pila de botón, mientras que Wi-Fi ofrece gran caudal (Mbps/Gbps) con un consumo energético mucho más elevado",
+      "Ambos consumen exactamente lo mismo y tienen el mismo ancho de banda",
+      "BLE solo funciona si hay visión directa óptica como IrDA"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: 'Publicación-suscripción en estrella con un broker'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_014"
+    "explanation": "BLE fue diseñado para enviar ráfagas cortas de datos esporádicos (sensores de pulso, balizas, wearables) manteniendo el transmisor dormido la mayor parte del tiempo, permitiendo autonomías de meses o años con pila de botón, a diferencia de Wi-Fi que requiere alta potencia continua."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuál es el tamaño de la cabecera obligatoria de un mensaje MQTT?",
+    "id": "t3_con_02",
+    "tema": 3,
+    "subtema": "Conectividad",
+    "q": "Al comparar Bluetooth con NFC (Near Field Communication), ¿cuál de las siguientes afirmaciones es correcta?",
     "options": [
-      "1 byte fijo",
-      "2-5 bytes",
-      "10-20 bytes",
-      "256 bytes"
+      "NFC tiene un alcance de hasta 100 metros y requiere emparejamiento manual con código PIN",
+      "NFC opera a una distancia máxima de escasos centímetros (< 4-10 cm) mediante acoplamiento inductivo a 13.56 MHz, lo que proporciona gran seguridad intrínseca para pagos móviles y emparejamiento instantáneo sin configuración",
+      "Bluetooth opera a 13.56 MHz y NFC en la banda de 2.4 GHz",
+      "NFC no permite transferir ningún dato y solo sirve para encender el teléfono"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: '2-5 bytes'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_015"
+    "explanation": "NFC opera por proximidad extrema (< 4-10 cm) en la banda de 13.56 MHz. Su cortísimo alcance físico garantiza que nadie intercepte la señal a distancia, haciéndolo ideal para pagos (Apple Pay / Google Wallet) y emparejamiento rápido 'tocar y listo'."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué tamaño de payload se usa habitualmente en MQTT aunque teóricamente admita más?",
+    "id": "t3_con_03",
+    "tema": 3,
+    "subtema": "Conectividad",
+    "q": "¿Qué protocolo inalámbrico en la banda de 2.4 GHz está especialmente diseñado para redes de domótica y sensores industriales gracias a su topología de red en malla (Mesh) y consumo reducido?",
     "options": [
-      "256 Mb siempre",
-      "2-4 Kb",
-      "1 Gb",
-      "512 bytes"
+      "IrDA",
+      "Zigbee (IEEE 802.15.4)",
+      "Wi-Fi 802.11a",
+      "NFC"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: '2-4 Kb'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_016"
+    "explanation": "Zigbee está basado en IEEE 802.15.4 y se caracteriza por crear topologías en malla (Mesh), donde cada nodo puede reenviar paquetes de otros nodos, ideal para sensores domóticos y automatización con bajo consumo."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "En MQTT, ¿qué nivel de QoS garantiza la entrega una única vez sin duplicidades?",
+    "id": "t3_con_04",
+    "tema": 3,
+    "subtema": "Conectividad",
+    "q": "¿En qué ámbito destaca principalmente el protocolo ANT / ANT+ frente a Bluetooth tradicional?",
     "options": [
-      "QoS 0",
-      "QoS 1",
-      "QoS 2",
-      "No existe ese nivel"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'QoS 2'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_017"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué nivel de QoS de MQTT envía el mensaje sin tener en cuenta los errores?",
-    "options": [
-      "QoS 0",
-      "QoS 1",
-      "QoS 2",
-      "QoS 3"
-    ],
-    "correct": 0,
-    "explanation": "Respuesta correcta: 'QoS 0'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_018"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué ocurre en QoS 1 de MQTT si se producen errores?",
-    "options": [
-      "El mensaje se pierde definitivamente",
-      "El mensaje se recibe con duplicidades",
-      "Se cancela la suscripción",
-      "Se cambia automáticamente a QoS 2"
+      "En la transmisión de vídeo 4K en tiempo real",
+      "En el ecosistema deportivo y monitorización de fitness (pulsómetros, bandas de pecho, potenciómetros de ciclismo) con conexión ultraligera de uno a muchos",
+      "En la navegación web de alta velocidad",
+      "En el control de satélites espaciales"
     ],
     "correct": 1,
-    "explanation": "Respuesta correcta: 'El mensaje se recibe con duplicidades'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_019"
+    "explanation": "ANT y ANT+ son protocolos propietarios ultraligeros de ultra bajo consumo enfocados tradicionalmente al fitness y sensores deportivos, permitiendo que un sensor envíe datos a múltiples relojes o ciclocomputadores simultáneamente."
   },
   {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "Según el texto, ¿por qué muchos dispositivos IoT no pueden aplicar medidas de seguridad como SSL/TLS?",
+    "id": "t3_con_05",
+    "tema": 3,
+    "subtema": "Conectividad",
+    "q": "¿Cuál es la principal diferencia entre una etiqueta RFID pasiva y la tecnología Bluetooth?",
     "options": [
-      "Por restricciones legales",
-      "Por sus capacidades muy reducidas",
-      "Porque no lo permite MQTT",
-      "Porque encarece demasiado el hardware"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Por sus capacidades muy reducidas'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_020"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué busca principalmente el paradigma SOAP?",
-    "options": [
-      "Transferir ficheros grandes",
-      "Exponer la lógica de negocio de un sistema",
-      "Sustituir a REST en la web",
-      "Gestionar bases de datos distribuidas"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Exponer la lógica de negocio de un sistema'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_021"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Para qué tecnología se creó originalmente SOAP, según el documento?",
-    "options": [
-      "Para internet de forma nativa",
-      "Para tecnologías RPC de entornos aislados",
-      "Para bases de datos NoSQL",
-      "Para redes sociales"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Para tecnologías RPC de entornos aislados'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_022"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuál es el mayor beneficio de SOAP mencionado en el texto?",
-    "options": [
-      "Su ligereza",
-      "Su clara definición, asincronía y seguridad",
-      "Su uso exclusivo en móviles",
-      "Su bajo consumo de recursos"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Su clara definición, asincronía y seguridad'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_023"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿En qué tipo de servicios se utiliza principalmente SOAP según el documento?",
-    "options": [
-      "Servicios de streaming",
-      "Servicios gubernamentales",
-      "Redes sociales",
-      "Aplicaciones móviles de consumo"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Servicios gubernamentales'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_024"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿En qué protocolo de transporte se basa REST?",
-    "options": [
-      "FTP",
-      "SMTP",
-      "HTTP",
-      "SOAP"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'HTTP'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_025"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuál es el objetivo principal de REST según el texto?",
-    "options": [
-      "Exponer recursos de un sistema a otro",
-      "Definir contratos WSDL",
-      "Cifrar comunicaciones M2M",
-      "Sustituir la arquitectura SOA"
+      "La etiqueta RFID pasiva no tiene batería propia y se energiza mediante la onda electromagnética emitida por el lector, mientras que Bluetooth requiere siempre su propia fuente de alimentación",
+      "Bluetooth no requiere batería y RFID consume 20 vatios",
+      "RFID alcanza 2 kilómetros y Bluetooth solo 1 milímetro",
+      "RFID requiere conectarse a una red Wi-Fi previa"
     ],
     "correct": 0,
-    "explanation": "Respuesta correcta: 'Exponer recursos de un sistema a otro'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_026"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "Según la comparativa del documento, ¿qué protocolo de seguridad usa típicamente REST?",
-    "options": [
-      "WS Security",
-      "HTTPS",
-      "SSH",
-      "IPsec"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'HTTPS'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_027"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "Según la comparativa, ¿qué tipo de definición de servicio usa SOAP?",
-    "options": [
-      "Raml u OpenApi",
-      "Contrato WSDL con tipado fuerte",
-      "JSON Schema",
-      "No requiere definición formal"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Contrato WSDL con tipado fuerte'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_028"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuál es una desventaja de REST mencionada en la tabla del documento?",
-    "options": [
-      "Necesita puertos dedicados",
-      "Descripción semántica informal",
-      "No tiene mecanismo de nombrado",
-      "Requiere estado en las operaciones"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Descripción semántica informal'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_029"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuál es una ventaja de SOAP mencionada en la tabla del documento?",
-    "options": [
-      "Nombrado mediante URIs",
-      "Bajo consumo",
-      "Mejor privacidad al esconder operaciones complejas",
-      "Fácil de entender"
-    ],
-    "correct": 2,
-    "explanation": "Respuesta correcta: 'Mejor privacidad al esconder operaciones complejas'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_030"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué relación tienen SOA y SOAP según el documento?",
-    "options": [
-      "SOA es una versión simplificada de SOAP",
-      "Aunque suenan parecido, no tienen tanta relación",
-      "Son sinónimos intercambiables",
-      "SOAP es el protocolo obligatorio de SOA"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Aunque suenan parecido, no tienen tanta relación'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_031"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué pretende sustituir SOA según el texto, por no ser reutilizables?",
-    "options": [
-      "Las tecnologías EAI",
-      "Los servicios REST",
-      "El protocolo MQTT",
-      "Las bases de datos relacionales"
-    ],
-    "correct": 0,
-    "explanation": "Respuesta correcta: 'Las tecnologías EAI'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_032"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Cuál de estos NO es un principio de SOA mencionado en el documento?",
-    "options": [
-      "Reusabilidad",
-      "Interoperabilidad",
-      "Sistemas desacoplados",
-      "Cifrado obligatorio end-to-end"
-    ],
-    "correct": 3,
-    "explanation": "Respuesta correcta: 'Cifrado obligatorio end-to-end'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_033"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "En el diagrama de componentes SOA, ¿qué acción realiza el proveedor de servicios respecto al registro de servicios?",
-    "options": [
-      "Busca",
-      "Publica",
-      "Interactúa directamente con el cliente",
-      "Elimina servicios"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Publica'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_034"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué mejora principal aporta un Enterprise Service Bus (ESB) frente a las conexiones punto a punto?",
-    "options": [
-      "Reduce el número de conexiones necesarias entre sistemas",
-      "Elimina la necesidad de mensajes",
-      "Sustituye completamente a REST",
-      "Aumenta el número de conexiones M*N"
-    ],
-    "correct": 0,
-    "explanation": "Respuesta correcta: 'Reduce el número de conexiones necesarias entre sistemas'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_035"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Quién desarrolló la tendencia de Microservices según el documento?",
-    "options": [
-      "Tim Berners-Lee",
-      "Martin Fowler",
-      "Roy Fielding",
-      "Linus Torvalds"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Martin Fowler'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_036"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué se necesita para que funcione correctamente una arquitectura de microservicios?",
-    "options": [
-      "Un servidor SOAP central",
-      "Un servicio de localización de servicios (broker)",
-      "Una base de datos única compartida",
-      "Un único lenguaje de programación"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Un servicio de localización de servicios (broker)'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_037"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "Según el texto, ¿cuándo es poco recomendable usar microservicios?",
-    "options": [
-      "Cuando el sistema es muy grande, como streaming",
-      "Cuando el nivel de complejidad del sistema es bajo, como un web portfolio",
-      "Cuando la empresa es grande como Amazon",
-      "Cuando se necesita alta tolerancia a fallos"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Cuando el nivel de complejidad del sistema es bajo, como un web portfolio'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_038"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué tecnología para conectar servicios y dispositivos fue creada por Google?",
-    "options": [
-      "GraphQL",
-      "gRPC",
-      "SOAP",
-      "ESB"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'gRPC'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_039"
-  },
-  {
-    "tema": 4,
-    "source": "quiz_iot_tema4.html",
-    "q": "¿Qué es GraphQL según el documento?",
-    "options": [
-      "Un protocolo de transporte de bajo nivel",
-      "Un lenguaje de consulta para APIs que permite peticiones más precisas",
-      "Un sustituto directo de MQTT",
-      "Un tipo de base de datos NoSQL"
-    ],
-    "correct": 1,
-    "explanation": "Respuesta correcta: 'Un lenguaje de consulta para APIs que permite peticiones más precisas'. Concepto fundamental evaluado según el temario oficial de la asignatura.",
-    "subtema": "Tema 4",
-    "id": "t4_040"
-  },
-  {
-    "tema": 4,
-    "subtema": "APIs REST",
-    "q": "¿Cuáles son los métodos HTTP estándar que se consideran 'idempotentes' según la especificación REST y HTTP?",
-    "options": [
-      "GET, PUT y DELETE (ejecutar la misma petición múltiples veces produce el mismo efecto en el estado del servidor)",
-      "Únicamente POST",
-      "POST y PATCH",
-      "Ningún método HTTP es idempotente"
-    ],
-    "correct": 0,
-    "explanation": "En HTTP/REST, un método es idempotente si realizar la misma petición una o varias veces produce el mismo estado en el servidor. GET (solo lee), PUT (reemplaza por completo el recurso) y DELETE (elimina el recurso) son idempotentes; POST no lo es porque múltiples llamadas generan múltiples recursos nuevos.",
-    "id": "t4_041"
-  },
-  {
-    "tema": 4,
-    "subtema": "APIs REST",
-    "q": "¿Qué código de estado HTTP debe devolver típicamente un endpoint REST tras procesar con éxito una petición POST que crea un nuevo recurso en la base de datos?",
-    "options": [
-      "201 Created",
-      "200 OK",
-      "204 No Content",
-      "304 Not Modified"
-    ],
-    "correct": 0,
-    "explanation": "El código HTTP estándar para indicar que la solicitud se ha completado con éxito y ha tenido como resultado la creación de un nuevo recurso es '201 Created' (habitualmente acompañado de la cabecera 'Location' con la URI del recurso creado).",
-    "id": "t4_042"
-  },
-  {
-    "tema": 4,
-    "subtema": "APIs REST",
-    "q": "¿Qué código de estado HTTP se utiliza cuando una petición PUT o DELETE se ejecuta con éxito pero el servidor decide no enviar ningún cuerpo en la respuesta?",
-    "options": [
-      "204 No Content",
-      "404 Not Found",
-      "200 OK",
-      "400 Bad Request"
-    ],
-    "correct": 0,
-    "explanation": "'204 No Content' significa que el servidor ha procesado con éxito la solicitud pero no devuelve ningún contenido en el cuerpo del mensaje.",
-    "id": "t4_043"
-  },
-  {
-    "tema": 4,
-    "subtema": "APIs REST",
-    "q": "¿Cuál es la diferencia fundamental entre los códigos de error HTTP 401 Unauthorized y 403 Forbidden?",
-    "options": [
-      "401 significa que el cliente no se ha autenticado (falta token o credenciales inválidas), mientras que 403 significa que el cliente está autenticado pero no tiene los permisos suficientes para acceder al recurso",
-      "401 es un error del servidor interno y 403 es un error de conexión Wi-Fi",
-      "Son exactamente sinónimos y se usan indistintamente",
-      "401 solo se usa en páginas HTML y 403 en JSON"
-    ],
-    "correct": 0,
-    "explanation": "401 Unauthorized indica ausencia o fallo de autenticación (requiere autenticarse); 403 Forbidden significa que el servidor conoce la identidad del usuario pero este carece de autorización/permisos para realizar la acción.",
-    "id": "t4_044"
-  },
-  {
-    "tema": 4,
-    "subtema": "OpenAPI vs Swagger",
-    "q": "¿Cuál es la relación histórica y conceptual exacta entre Swagger y la especificación OpenAPI (OAS)?",
-    "options": [
-      "OpenAPI es la especificación estándar abierta (creada tras donar Swagger 2.0 a la Linux Foundation en 2015), mientras que 'Swagger' se refiere hoy a las herramientas de software de SmartBear (Swagger Editor, Swagger UI, Swagger Codegen)",
-      "Swagger es el nombre moderno de OpenAPI creado por Google en 2024",
-      "Swagger es un lenguaje binario y OpenAPI es un framework de Python",
-      "OpenAPI fue abandonado y sustituido por Swagger 5.0"
-    ],
-    "correct": 0,
-    "explanation": "Tony Tam creó Swagger en 2010. En 2015, SmartBear donó la especificación Swagger a la Linux Foundation, creando la iniciativa OpenAPI Specification (OAS). Hoy, OpenAPI es el formato estándar independiente del proveedor y Swagger son las herramientas que lo implementan.",
-    "id": "t4_045"
-  },
-  {
-    "tema": 4,
-    "subtema": "RAML",
-    "q": "¿Qué es RAML y qué empresa lo promovió principalmente?",
-    "options": [
-      "RESTful API Modeling Language, una especificación basada en YAML para diseñar APIs desarrollada por MuleSoft",
-      "Un microcontrolador para dispositivos Arduino",
-      "Un tipo de memoria RAM volátil",
-      "Un servidor web escrito en Erlang"
-    ],
-    "correct": 0,
-    "explanation": "RAML (RESTful API Modeling Language) es un lenguaje basado en YAML diseñado por MuleSoft para describir y modelar APIs RESTful antes de escribirlas.",
-    "id": "t4_046"
-  },
-  {
-    "tema": 4,
-    "subtema": "Swagger 2.0 vs OpenAPI 3.0",
-    "q": "¿Cómo se especifica la versión del estándar al inicio del documento en Swagger 2.0 frente a OpenAPI 3.0?",
-    "options": [
-      "En la versión antigua: 'swagger: \"2.0\"'; en la versión moderna: 'openapi: \"3.0.0\"'",
-      "En ambas se escribe 'version: 1.0'",
-      "En Swagger 2.0 es 'api: 2.0' y en OpenAPI es 'oas: 3.0'",
-      "No se indica ninguna versión en el encabezado"
-    ],
-    "correct": 0,
-    "explanation": "La propiedad raíz que identifica la especificación cambió de `swagger: \"2.0\"` a `openapi: \"3.0.0\"` (o versiones 3.0.x / 3.1.x).",
-    "id": "t4_047"
-  },
-  {
-    "tema": 4,
-    "subtema": "Swagger 2.0 vs OpenAPI 3.0",
-    "q": "¿Cómo cambió la definición de la URL base del servidor entre Swagger 2.0 y OpenAPI 3.0?",
-    "options": [
-      "Swagger 2.0 separaba 'host', 'basePath' y 'schemes' (limitado a un único host), mientras que OpenAPI 3.0 los unificó en una lista flexible 'servers' con soporte para múltiples URLs y variables",
-      "En Swagger 2.0 se usaba IP numérica y en OpenAPI 3.0 solo nombres de dominio .org",
-      "OpenAPI 3.0 eliminó por completo el concepto de servidor",
-      "Swagger 2.0 no permitía definir URLs"
-    ],
-    "correct": 0,
-    "explanation": "En OpenAPI 3.0 se define `servers: [{ url: 'https://api.empresa.com/v1', description: 'Producción' }, { url: 'https://staging.empresa.com/v1' }]`, permitiendo definir múltiples servidores y parámetros variables en la URL.",
-    "id": "t4_048"
-  },
-  {
-    "tema": 4,
-    "subtema": "Swagger 2.0 vs OpenAPI 3.0",
-    "q": "¿Cómo se define el cuerpo de la petición (payload enviado en un POST o PUT) en OpenAPI 3.0 frente a Swagger 2.0?",
-    "options": [
-      "Swagger 2.0 usaba un parámetro con 'in: body'; OpenAPI 3.0 utiliza el objeto dedicado 'requestBody', permitiendo mapear el esquema a distintos tipos MIME (application/json, multipart/form-data, etc.)",
-      "OpenAPI 3.0 prohíbe enviar cuerpos en las peticiones HTTP",
-      "En OpenAPI 3.0 el body se envía obligatoriamente en las cabeceras HTTP",
-      "Swagger 2.0 no permitía peticiones POST"
-    ],
-    "correct": 0,
-    "explanation": "OpenAPI 3.0 reemplazó `in: body` y `in: formData` por el elemento `requestBody: { content: { 'application/json': { schema: ... } } }`, otorgando mucha más flexibilidad para múltiples formatos de contenido.",
-    "id": "t4_049"
-  },
-  {
-    "tema": 4,
-    "subtema": "Swagger 2.0 vs OpenAPI 3.0",
-    "q": "¿Cuáles son los cuatro tipos válidos de parámetros según su ubicación ('in') en OpenAPI 3.0?",
-    "options": [
-      "path, query, header y cookie",
-      "body, form, query y file",
-      "url, json, xml y stream",
-      "get, post, put y delete"
-    ],
-    "correct": 0,
-    "explanation": "En OpenAPI 3.0 los parámetros solo pueden residir en cuatro ubicaciones: `in: path` (ej. `/usuarios/{id}`), `in: query` (ej. `?filtro=activo`), `in: header` (cabeceras HTTP) e `in: cookie` (cookies del cliente).",
-    "id": "t4_050"
-  },
-  {
-    "tema": 4,
-    "subtema": "OpenAPI 3.0",
-    "q": "En un documento OpenAPI 3.0, ¿bajo qué sección principal se declaran los modelos de datos, esquemas, respuestas y parámetros reutilizables?",
-    "options": [
-      "components (ej. components.schemas, components.responses, components.parameters)",
-      "definitions",
-      "globals",
-      "models"
-    ],
-    "correct": 0,
-    "explanation": "OpenAPI 3.0 unificó todas las declaraciones reutilizables bajo la clave `components:` (incluyendo `components/schemas`, `components/responses`, `components/parameters`, `components/securitySchemes`), reemplazando al antiguo `definitions:` de Swagger 2.0.",
-    "id": "t4_051"
-  },
-  {
-    "tema": 4,
-    "subtema": "OpenAPI 3.0",
-    "q": "¿Cuál es la sintaxis JSON Pointer correcta en OpenAPI 3.0 para hacer referencia ($ref) a un esquema de datos llamado 'Dispositivo' definido en la sección de componentes reutilizables?",
-    "options": [
-      "$ref: '#/components/schemas/Dispositivo'",
-      "$ref: 'Dispositivo.class'",
-      "$ref: 'import Dispositivo from components'",
-      "$ref: 'file://schemas.json#Dispositivo'"
-    ],
-    "correct": 0,
-    "explanation": "La especificación utiliza referencias JSON Reference: `$ref: '#/components/schemas/Dispositivo'`, donde `#` representa la raíz del documento actual.",
-    "id": "t4_052"
-  },
-  {
-    "tema": 4,
-    "subtema": "Herramientas Swagger",
-    "q": "¿Cuál de las siguientes herramientas oficiales de Swagger permite visualizar una documentación interactiva en el navegador desde la cual probar las peticiones directamente contra la API?",
-    "options": [
-      "Swagger UI",
-      "Swagger Codegen",
-      "Swagger Compiler",
-      "Swagger Monitor"
-    ],
-    "correct": 0,
-    "explanation": "Swagger UI renderiza la especificación OpenAPI en una página web interactiva donde cualquier usuario o desarrollador puede explorar los endpoints y ejecutarlos mediante el botón 'Try it out'.",
-    "id": "t4_053"
-  },
-  {
-    "tema": 4,
-    "subtema": "Herramientas Swagger",
-    "q": "¿Qué herramienta del ecosistema Swagger permite generar automáticamente el código esqueleto del servidor (Stubs en Node, Spring, etc.) y las librerías cliente (SDKs en Java, Swift, Python) a partir de una especificación OpenAPI?",
-    "options": [
-      "Swagger Codegen / OpenAPI Generator",
-      "Swagger Viewer",
-      "Swagger Inspector",
-      "Swagger Proxy"
-    ],
-    "correct": 0,
-    "explanation": "Swagger Codegen (y su fork OpenAPI Generator) procesa el archivo YAML/JSON de la API y genera automáticamente clientes y servidores en más de 40 lenguajes de programación.",
-    "id": "t4_054"
-  },
-  {
-    "tema": 4,
-    "subtema": "OpenAPI 3.0",
-    "q": "En la sección 'paths' de una especificación OpenAPI 3.0, ¿qué representa cada clave de primer nivel?",
-    "options": [
-      "La ruta relativa del endpoint (por ejemplo '/dispositivos/{id}') comenzando obligatoriamente por una barra '/'",
-      "El nombre de la tabla de la base de datos",
-      "La contraseña del administrador",
-      "La dirección IP del cliente"
-    ],
-    "correct": 0,
-    "explanation": "La sección `paths` mapea cada ruta relativa de la API (endpoint, comenzando por `/`) con las operaciones HTTP asociadas (get, post, put, delete, etc.).",
-    "id": "t4_055"
-  },
-  {
-    "tema": 4,
-    "subtema": "OpenAPI 3.0",
-    "q": "En la especificación OpenAPI 3.0, ¿cuál es la diferencia entre la propiedad 'type' y la propiedad 'format' al definir un campo en un esquema de datos (Schema)?",
-    "options": [
-      "'type' especifica el tipo de dato primitivo estándar (por ejemplo 'integer' o 'string'), mientras que 'format' es un modificador opcional que define la precisión o semántica concreta (por ejemplo format: 'int64', 'float', 'date-time', 'email', 'binary')",
-      "'type' es para la base de datos y 'format' para el color del texto en el navegador",
-      "Son dos propiedades que hacen lo mismo y nunca se deben combinar",
-      "'format' indica obligatoriamente la extensión de archivo (.jpg, .mp3)"
-    ],
-    "correct": 0,
-    "explanation": "OpenAPI 3.0 basa sus tipos en JSON Schema: `type` fija la categoría primitiva (string, number, integer, boolean, array, object) y `format` concreta la representación precisa (ej. `type: integer, format: int64` o `type: string, format: date-time`).",
-    "id": "t4_056"
-  },
-  {
-    "tema": 4,
-    "subtema": "OpenAPI 3.0",
-    "q": "En un esquema de tipo objeto en OpenAPI 3.0, ¿cómo se definen los campos que son obligatorios para que la petición sea válida?",
-    "options": [
-      "Mediante un array de cadenas a nivel del objeto llamado 'required', que lista los nombres de las propiedades obligatorias (por ejemplo: required: ['id', 'nombre'])",
-      "Añadiendo la etiqueta <mandatory> en cada línea",
-      "Poniendo un asterisco '*' al final del nombre de la variable",
-      "Escribiendo la palabra 'obligatorio: true' dentro de la URL"
-    ],
-    "correct": 0,
-    "explanation": "En OpenAPI / JSON Schema, los campos obligatorios de un objeto se declaran en una lista en la raíz del schema: `required: [nombre_campo1, nombre_campo2]`.",
-    "id": "t4_057"
-  },
-  {
-    "tema": 4,
-    "subtema": "OpenAPI 3.0",
-    "q": "¿Cómo se define un parámetro de tipo 'path' (parámetro de ruta en la URL, como '/dispositivos/{id}') en OpenAPI 3.0?",
-    "options": [
-      "Se define con 'name: id', 'in: path' y la propiedad 'required: true' (la cual es estrictamente obligatoria en todos los parámetros de tipo path)",
-      "Se define con 'in: body' y 'required: false'",
-      "Se coloca en un archivo .txt separado en el servidor",
-      "Los parámetros de path no se pueden describir en OpenAPI"
-    ],
-    "correct": 0,
-    "explanation": "Para parámetros de ruta en la URL (`in: path`), la especificación OpenAPI 3.0 exige taxativamente que la propiedad `required` tenga el valor booleano `true`, ya que un endpoint no puede resolverse sin el segmento de ruta.",
-    "id": "t4_058"
-  },
-  {
-    "tema": 4,
-    "subtema": "OpenAPI 3.0",
-    "q": "En OpenAPI 3.0, ¿bajo qué subsección de 'components' se declaran los mecanismos de autenticación y autorización (como Bearer JWT, API Keys, OAuth2 u OpenID Connect)?",
-    "options": [
-      "components.securitySchemes",
-      "components.passwords",
-      "components.logins",
-      "components.tokens"
-    ],
-    "correct": 0,
-    "explanation": "Todos los esquemas de seguridad reutilizables se configuran bajo `components: securitySchemes:`, y luego se aplican a nivel global o por endpoint mediante la propiedad `security:`.",
-    "id": "t4_059"
+    "explanation": "Los tags RFID pasivos carecen de batería: utilizan la inducción electromagnética del campo emitido por la antena lectora para alimentarse y devolver su identificador. Los dispositivos Bluetooth son activos y requieren batería."
   }
 ]
